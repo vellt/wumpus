@@ -117,7 +117,12 @@ public class FieldLoadFromFileViewController {
 
     private void insertHeroIntoTheField(Hero hero) {
          int index= IntStream.range(0, fields.size())
-                 .filter(i -> fields.get(i).getColumn() == hero.getColumn() && fields.get(i).getRow() == hero.getRow() && fields.get(i).getShortCut()=='_')
+                 .filter(i -> fields.get(i).getColumn() == hero.getColumn()
+                         && fields.get(i).getRow() == hero.getRow()
+                         && fields.get(i).getShortCut()!='W'
+                         && fields.get(i).getShortCut()!='U'
+                         && fields.get(i).getShortCut()!='P'
+                 )
                  .findFirst().orElse(-1);
          if(index!=-1){
              fields.set(index, hero);
