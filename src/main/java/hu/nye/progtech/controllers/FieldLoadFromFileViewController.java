@@ -8,14 +8,42 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Scanner;
-import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class FieldLoadFromFileViewController {
 
     private List<FieldObject> fields= new ArrayList<>();
     private int matrixLength=0;
+
+    private String name="";
+
+    public List<FieldObject> getFields() {
+        return fields;
+    }
+
+    public void setFields(List<FieldObject> fields) {
+        this.fields = fields;
+    }
+
+    private Hero hero;
+
+    public Hero getHero() {
+        return hero;
+    }
+
+    public void setHero(Hero hero) {
+        this.hero = hero;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     private Direction getCorrectDirection(char direction){
         return switch (direction) {
@@ -26,7 +54,14 @@ public class FieldLoadFromFileViewController {
         };
     }
 
-    private void DrawTheField(){
+    private int specifiedFieldCounter(char shortCut){
+               return (int)fields.stream()
+                        .map(FieldObject::getShortCut) // Csak az első karaktert nézzük
+                        .filter(c -> c == shortCut)
+                        .count();
+    }
+
+    public void drawTheField(){
         fields.sort(Comparator
                 .comparing(FieldObject::getRow)
                 .thenComparing(FieldObject::getColumn));
@@ -74,13 +109,7 @@ public class FieldLoadFromFileViewController {
                 matrixLength= Integer.parseInt(firstLine[0]);
                 // System.out.println(matrixLength);
 
-                // hős adatainak a betöltése
-                Hero hero= new Hero(
-                        'H',
-                        firstLine[1].charAt(0),
-                        Integer.parseInt(firstLine[2]),
-                        getCorrectDirection(firstLine[3].charAt(0))
-                );
+
                 //System.out.println(hero);
 
                 // további adat betölése
@@ -93,19 +122,19 @@ public class FieldLoadFromFileViewController {
                           ));
                     }
                 }
+                // hős adatainak a betöltése
+                hero= new Hero(
+                        'H',
+                        firstLine[1].charAt(0),
+                        Integer.parseInt(firstLine[2]),
+                        getCorrectDirection(firstLine[3].charAt(0)),
+                        specifiedFieldCounter('U'),
+                        getName());
 
                 insertHeroIntoTheField(hero);
-                DrawTheField();
+                drawTheField();
 
-                /*
-                megszámolom, mennyi 'P' elem van a mezőn
-                long underscoreCount = fields.stream()
-                        .map(FieldObject::getShortCut) // Csak az első karaktert nézzük
-                        .filter(c -> c == 'P')
-                        .count();
 
-                System.out.println("Az '_' karakterek száma: " + underscoreCount);
-                */
 
             }
 
