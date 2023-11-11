@@ -7,8 +7,9 @@ public class HomeView {
     static String userName;
 
     public static void show(Callback callback){
-        System.out.println("*****WUMPUS*******");
-        System.out.println("\tbelépés");
+        System.out.println("*******WUMPUS*********");
+        System.out.println(" belépés");
+        System.out.println("**********************");
         System.out.print("felhasználónév: ");
         Scanner scanner= new Scanner(System.in);
         userName= scanner.nextLine();

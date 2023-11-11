@@ -8,8 +8,10 @@ public class MenuView {
     static boolean stayIn=true;
     public static boolean show(Callback callback){
         while (stayIn){
-            System.out.println("******************");
-            System.out.println("\tmenü");
+            System.out.println("\n-----------------------------------------------------------------------------\n");
+            System.out.println("**********************");
+            System.out.println(" menü");
+            System.out.println("**********************");
             System.out.println("1. pályaszerkesztés");
             System.out.println("2. fájlból beolvasás");
             System.out.println("3. adatbázisból betöltés");

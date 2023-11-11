@@ -1,11 +1,22 @@
 package hu.nye.progtech.models;
 
 public class FieldObject {
+    private char shortCut;
     private char column;
     private int row;
-    public FieldObject(char column, int row){
-        this.column=column;
-        this.row=row;
+
+    public FieldObject(char shortCut, char column, int row) {
+        this.shortCut = shortCut;
+        this.column = column;
+        this.row = row;
+    }
+
+    public char getShortCut() {
+        return shortCut;
+    }
+
+    public void setShortCut(char shortCut) {
+        this.shortCut = shortCut;
     }
 
     public char getColumn() {
@@ -22,5 +33,15 @@ public class FieldObject {
 
     public void setRow(int row) {
         this.row = row;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuffer sb = new StringBuffer("FieldObject{");
+        sb.append("shortCut=").append(shortCut);
+        sb.append(", column=").append(column);
+        sb.append(", row=").append(row);
+        sb.append('}');
+        return sb.toString();
     }
 }
