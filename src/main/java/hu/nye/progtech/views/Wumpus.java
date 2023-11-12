@@ -1,0 +1,45 @@
+package hu.nye.progtech.views;
+
+import hu.nye.progtech.models.MenuCallback;
+
+import java.util.Scanner;
+
+public class Wumpus {
+
+    public static boolean viewLoop =true;
+    static int viewMenu =-1;
+    static boolean isWin;
+
+
+    public static void show(MenuCallback callback){
+        viewLoop =true;
+        while (viewLoop){
+            System.out.println("-----------------Wumpus--------------------");
+            Scanner scanner= new Scanner(System.in);
+            System.out.println("1. Játék mentése");
+            System.out.println("2. Játék feladása (kilépés)");
+            System.out.println("3. Lépés");
+            System.out.println("4. Lövés");
+            System.out.println("5. Balra fordulás");
+            System.out.println("6. Jobbra fordulás");
+            System.out.println("7. Arany felvétele");
+            System.out.print("menü: ");
+            if(scanner.hasNextInt() )
+            viewMenu = scanner.nextInt();
+            callback.Call(viewMenu);
+        }
+    }
+
+    public static boolean hasWin(){
+        return isWin;
+    }
+
+    public static void repeat(){
+        viewLoop =true;
+    }
+
+    public static boolean close(){
+        return viewLoop =false;
+    }
+
+}

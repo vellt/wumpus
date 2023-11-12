@@ -2,22 +2,107 @@ package hu.nye.progtech;
 
 import hu.nye.progtech.views.*;
 
+
 public class Main {
     public static void main(String[] args) {
-        HomeView.show((isUserNameValid, userName) -> {
-            if (isUserNameValid){
-                MenuView.show(((chosenMenu) ->
-                        switch (chosenMenu) {
-                            case 1 -> FieldEditView.show();  // todo: elég vagy ezt vagy
-                            case 2 -> FieldLoadFromFileView.show(userName);  // todo: ezt implementálni
-                            case 3 -> LoadDataFromDbView.show();  // todo: ráér a 2. fázisban implementálni
-                            case 4 -> SaveDataIntoDbView.show(); // todo: ráér a 2. fázisban implementálni
-                            case 5 -> GameView.show(FieldLoadFromFileView.controller);
-                            case 6 -> ExitView.show();
-                            default -> ErrorView.show("Nem ismert menüpont");
-                        }));
+        App.show((appMenu) -> {
+            switch (appMenu) {
+                case 1:
+                    StartGame.show(startGameMenu -> {
+                        switch (startGameMenu) {
+                            case 1:
+                                StartNewGame.show(startNewGameMenu -> {
+                                    switch (startNewGameMenu) {
+                                        case 1:
+                                            GiveYourName.show(giveYourNameMenu -> {
+                                                switch (giveYourNameMenu){
+                                                    case 1:
+                                                        // wumpus
+                                                        Wumpus.show(wumpusMenu->{
+                                                            switch (wumpusMenu){
+                                                                case 1: SaveGame.show(saveGameMenu -> {
+                                                                    SaveGame.close();
+                                                                }); break; // itt az van h több almenü, kiléosz vagy nem..
+                                                                case 2: GiveUp.show(giveUpMenu->{
+                                                                    switch (giveUpMenu){
+                                                                        case 1:  // visszadob az app-ig
+                                                                            GiveUp.close();
+                                                                            Wumpus.close();
+                                                                            GiveYourName.close();
+                                                                            StartNewGame.close();
+                                                                            StartGame.close();
+                                                                        default:
+                                                                            GiveUp.close();
+                                                                    }
+                                                                    }); break;
+                                                                case 3:
+                                                                    Move.show(moveMenu->{
+                                                                        Move.close();
+                                                                    });
+                                                                    break;
+                                                                case 4:
+                                                                    Shoot.show(shootMenu->{
+                                                                        Shoot.close();
+                                                                    });
+                                                                    break;
+                                                                case 5:
+                                                                    TurnLeft.show(turnLeftMenu->{
+                                                                        TurnLeft.close();
+                                                                    });
+                                                                    break;
+                                                                case 6:
+                                                                    TurnRight.show(turnRightMenu->{
+                                                                        TurnRight.close();
+                                                                    });
+                                                                    break;
+                                                                case 7:
+                                                                    TakeTheGold.show(takeTheGold->{
+                                                                        TookGold.show(tookGoldMenu->{
+                                                                            TookGold.close();
+                                                                        });
+                                                                        TakeTheGold.close();
+                                                                    });
+                                                                    break;
+                                                            }
+                                                            if(Wumpus.hasWin()){
+                                                                Win.show();
+                                                                Win.close();
+                                                                Wumpus.close();
+                                                                GiveYourName.close();
+                                                                StartNewGame.close();
+                                                                StartGame.close();
+                                                            }
+                                                        });
+                                                        break;
+                                                    case 2:
+                                                        GiveYourName.repeat();
+                                                        break;
+                                                    default:
+                                                        GiveYourName.close();
+                                                }
+                                            });
+                                            break;
+                                        default:
+                                            StartNewGame.close();
+                                            break;
+                                    }
+                                });
+                                break;
+                            case 2:
+                                LoadGame.show(loadGameMenu -> {
+                                    LoadGame.close();  // nincs implementálva még
+                                });
+                                break;
+                            default:
+                                StartGame.close();
+                                break;
+                        }
+                    });
+                    break;
+                default:
+                    App.close();
+                    break;
             }
         });
     }
-
 }

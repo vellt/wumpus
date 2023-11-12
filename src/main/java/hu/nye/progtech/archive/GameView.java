@@ -1,4 +1,4 @@
-package hu.nye.progtech.views;
+package hu.nye.progtech.archive;
 
 import hu.nye.progtech.controllers.FieldLoadFromFileViewController;
 
@@ -15,8 +15,11 @@ public class GameView {
             System.out.println("Neve: "+controller.getHero().getName());
             System.out.println("Nyilak száma: "+controller.getHero().getArrowCount());
             System.out.println("Amerre néz: "+controller.getHero().getDirection());
+            System.out.println("sor: "+controller.getHero().getRow());
+            System.out.println("oszlop: "+controller.getHero().getColumn());
 
             System.out.println("fordulj jobbra");
+            /*
             System.out.println(controller.getHero().getDirection());
             System.out.println(controller.getHero().turnLeft());
             System.out.println(controller.getHero().turnLeft());
@@ -26,6 +29,8 @@ public class GameView {
             System.out.println(controller.getHero().turnRight());
             System.out.println(controller.getHero().turnRight());
             System.out.println(controller.getHero().turnRight());
+            */
+            controller.getHero().step(controller.getFields());
 
         }else{
             System.out.println("Nincs pálya betöltve");
