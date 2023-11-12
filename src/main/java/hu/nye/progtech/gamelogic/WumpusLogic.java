@@ -1,11 +1,13 @@
 package hu.nye.progtech.gamelogic;
 
+import hu.nye.progtech.models.ConsoleColor;
 import hu.nye.progtech.models.FieldObject;
 import hu.nye.progtech.models.Hero;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.IntStream;
 
 public class WumpusLogic {
@@ -28,7 +30,53 @@ public class WumpusLogic {
         return this.hero;
     }
 
+    public boolean isThereAGoldWhereWeAre(){
+        Optional<FieldObject> firstFieldWithG = field.stream()
+                .filter(field -> field.getShortCut() == 'G')
+                .findFirst();
+
+        if (firstFieldWithG.isPresent()) {
+            FieldObject result = firstFieldWithG.get();
+            return result.getColumn() == getHero().getColumn() && result.getRow() == getHero().getRow();
+        } else {
+            return false;
+        }
+    }
+
+    public boolean shootWithArrow(){
+        switch (hero.getDirection()){
+            case East -> {
+                List<FieldObject> filteredList= field.stream()
+                        .filter(field -> field.getRow() == hero.getRow()).toList();
+                boolean heKilledTheWumpus=false;
+                for (int i=hero.getColumn(); i<matrixLength;i++){
+                    if(filteredList.get(i).getShortCut()=='U'){
+                        //találta a nyil
+                        heKilledTheWumpus=true;
+                        break;
+                    }
+                }
+                return heKilledTheWumpus;
+            }
+            case South -> {
+
+            }
+            case West ->{
+
+            }
+            default -> {
+
+            }
+        }
+        return false;
+    }
+
+    private boolean conditionForColoring(FieldObject fieldElement){
+        return fieldElement.getColumn()==hero.getColumn() && fieldElement.getRow()==hero.getRow();
+    }
+
     public void drawField() {
+
         field.sort(Comparator
                 .comparing(FieldObject::getRow)
                 .thenComparing(FieldObject::getColumn));
@@ -44,16 +92,34 @@ public class WumpusLogic {
         field.forEach((fieldElement)->{
             if(fieldElement.getColumn()-64==matrixLength){
                 if(fieldElement.getColumn()-64==0){
-                    System.out.printf("%3s\n",fieldElement.getShortCut());
+                    if(conditionForColoring(fieldElement)){
+                        System.out.printf(ConsoleColor.GREEN + "%3s\n"+ConsoleColor.RESET,fieldElement.getShortCut());
+                    }else{
+                        System.out.printf("%3s\n",fieldElement.getShortCut());
+                    }
                 }else{
-                    System.out.printf("%3s\n",fieldElement.getShortCut());
+                    if(conditionForColoring(fieldElement)){
+                        System.out.printf(ConsoleColor.GREEN + "%3s\n"+ConsoleColor.RESET,fieldElement.getShortCut());
+                    }else{
+                        System.out.printf("%3s\n",fieldElement.getShortCut());
+                    }
                 }
 
             }else{
                 if(fieldElement.getColumn()=='A'){
-                    System.out.printf("%d\t", fieldElement.getRow());
+                    if(conditionForColoring(fieldElement)){
+                        System.out.printf(ConsoleColor.GREEN + "%d\t"+ConsoleColor.RESET, fieldElement.getRow());
+                    }else{
+                        System.out.printf("%d\t", fieldElement.getRow());
+                    }
+
                 }
-                System.out.printf("%3s",fieldElement.getShortCut());
+                if(conditionForColoring(fieldElement)){
+                    System.out.printf(ConsoleColor.GREEN +"%3s"+ConsoleColor.RESET,fieldElement.getShortCut());
+                }else{
+                    System.out.printf("%3s",fieldElement.getShortCut());
+                }
+
             }
         });
     }

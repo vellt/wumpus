@@ -1,5 +1,6 @@
 package hu.nye.progtech.views;
 
+import hu.nye.progtech.models.ConsoleColor;
 import hu.nye.progtech.models.MenuCallback;
 
 import java.util.Scanner;
@@ -12,10 +13,10 @@ public class App {
     public static void show(MenuCallback callback){
         viewLoop =true;
         while (viewLoop){
-            System.out.println("-----------------APP--------------------");
+            System.out.println(ConsoleColor.BLUE+"-----------------APP--------------------"+ConsoleColor.RESET);
             Scanner scanner= new Scanner(System.in);
-            System.out.println("1. Játék");
-            System.out.println("2. Kilépés");
+            System.out.println(ConsoleColor.GREEN +"1."+ConsoleColor.RESET+" Játék");
+            System.out.println(ConsoleColor.GREEN +"2."+ConsoleColor.RESET+" Kilépés");
             System.out.print("menü: ");
             if(scanner.hasNextInt() )
                 viewMenu = scanner.nextInt();

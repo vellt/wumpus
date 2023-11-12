@@ -36,7 +36,7 @@ public class Main {
                                                                     }
                                                                     }); break;
                                                                 case 3:
-                                                                    Move.show(moveMenu->{
+                                                                    Move.show(Wumpus.gameLogic,moveMenu->{
                                                                         Move.close();
                                                                     });
                                                                     break;
@@ -46,20 +46,17 @@ public class Main {
                                                                     });
                                                                     break;
                                                                 case 5:
-                                                                    TurnLeft.show(turnLeftMenu->{
+                                                                    TurnLeft.show(Wumpus.gameLogic,turnLeftMenu->{
                                                                         TurnLeft.close();
                                                                     });
                                                                     break;
                                                                 case 6:
-                                                                    TurnRight.show(turnRightMenu->{
+                                                                    TurnRight.show(Wumpus.gameLogic,turnRightMenu->{
                                                                         TurnRight.close();
                                                                     });
                                                                     break;
                                                                 case 7:
-                                                                    TakeTheGold.show(takeTheGold->{
-                                                                        TookGold.show(tookGoldMenu->{
-                                                                            TookGold.close();
-                                                                        });
+                                                                    TakeTheGold.show(Wumpus.gameLogic,takeTheGold->{
                                                                         TakeTheGold.close();
                                                                     });
                                                                     break;
