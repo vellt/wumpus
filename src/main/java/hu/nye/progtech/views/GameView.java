@@ -15,6 +15,18 @@ public class GameView {
             System.out.println("Neve: "+controller.getHero().getName());
             System.out.println("Nyilak száma: "+controller.getHero().getArrowCount());
             System.out.println("Amerre néz: "+controller.getHero().getDirection());
+
+            System.out.println("fordulj jobbra");
+            System.out.println(controller.getHero().getDirection());
+            System.out.println(controller.getHero().turnLeft());
+            System.out.println(controller.getHero().turnLeft());
+            System.out.println(controller.getHero().turnLeft());
+            System.out.println(controller.getHero().turnLeft());
+            System.out.println(controller.getHero().turnLeft());
+            System.out.println(controller.getHero().turnRight());
+            System.out.println(controller.getHero().turnRight());
+            System.out.println(controller.getHero().turnRight());
+
         }else{
             System.out.println("Nincs pálya betöltve");
         }

@@ -37,6 +37,24 @@ public class Hero extends FieldObject{
         this.direction = direction;
     }
 
+    public Direction turnRight(){
+        if(this.getDirection().ordinal()!=3){
+             this.setDirection(Direction.values()[this.getDirection().ordinal()+1]);
+        }else{
+            this.setDirection( Direction.values()[0]);
+        }
+        return this.getDirection();
+    }
+
+    public Direction turnLeft(){
+        if(this.getDirection().ordinal()!=0){
+            this.setDirection(Direction.values()[this.getDirection().ordinal()-1]);
+        }else{
+            this.setDirection( Direction.values()[3]);
+        }
+        return this.getDirection();
+    }
+
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Hero{");
