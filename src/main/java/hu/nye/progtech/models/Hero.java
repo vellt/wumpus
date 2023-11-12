@@ -8,7 +8,7 @@ public class Hero extends FieldObject{
 
     private String name;
 
-    private boolean isThereGold=false;
+    private boolean hasGold=false;
 
     public Hero(char shortCut, char column, int row, Direction direction, int arrowCount, String name) {
         super(shortCut, column, row);
@@ -17,12 +17,19 @@ public class Hero extends FieldObject{
         this.name = name;
     }
 
-    public boolean isThereGold() {
-        return isThereGold;
+    public Hero() {
+        super('0', '0', 0);
+        this.direction = Direction.East;
+        this.arrowCount = 0;
+        this.name = "";
     }
 
-    public void setThereIsGold(boolean isThereGold) {
-        this.isThereGold = isThereGold;
+    public boolean hasGold() {
+        return hasGold;
+    }
+
+    public void setThereIsGold(boolean hasGold) {
+        this.hasGold = hasGold;
     }
 
     public String getName() {
@@ -47,6 +54,15 @@ public class Hero extends FieldObject{
 
     public void setDirection(Direction direction) {
         this.direction = direction;
+    }
+
+    public String getDirectionAsHU(){
+        return switch (direction){
+            case East -> "Nyugat";
+            case South -> "Dél";
+            case West -> "Kelet";
+            default -> "Észak";
+        };
     }
 
     public Direction turnRight(){
@@ -170,7 +186,7 @@ public class Hero extends FieldObject{
         sb.append(", shortCut=").append(this.getShortCut());
         sb.append(", column=").append(this.getColumn());
         sb.append(", row=").append(this.getRow());
-        sb.append(", hasGold=").append(this.isThereGold());
+        sb.append(", hasGold=").append(this.hasGold);
         sb.append('}');
         return sb.toString();
     }

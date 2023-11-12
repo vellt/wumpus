@@ -1,8 +1,7 @@
 package hu.nye.progtech.archive;
 
-import hu.nye.progtech.controllers.FieldLoadFromFileViewController;
-
 public class GameView {
+    /*
     public  static  boolean show(FieldLoadFromFileViewController controller){
         System.out.println("\n-----------------------------------------------------------------------------\n");
         System.out.println("**********************");
@@ -19,7 +18,7 @@ public class GameView {
             System.out.println("oszlop: "+controller.getHero().getColumn());
 
             System.out.println("fordulj jobbra");
-            /*
+
             System.out.println(controller.getHero().getDirection());
             System.out.println(controller.getHero().turnLeft());
             System.out.println(controller.getHero().turnLeft());
@@ -29,7 +28,7 @@ public class GameView {
             System.out.println(controller.getHero().turnRight());
             System.out.println(controller.getHero().turnRight());
             System.out.println(controller.getHero().turnRight());
-            */
+
             controller.getHero().step(controller.getFields());
 
         }else{
@@ -38,4 +37,7 @@ public class GameView {
 
         return true;
     }
+
+
+     */
 }

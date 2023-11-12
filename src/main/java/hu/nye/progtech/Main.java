@@ -18,7 +18,7 @@ public class Main {
                                                 switch (giveYourNameMenu){
                                                     case 1:
                                                         // wumpus
-                                                        Wumpus.show(wumpusMenu->{
+                                                        Wumpus.show(GiveYourName.name, wumpusMenu->{
                                                             switch (wumpusMenu){
                                                                 case 1: SaveGame.show(saveGameMenu -> {
                                                                     SaveGame.close();

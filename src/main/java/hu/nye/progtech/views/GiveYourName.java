@@ -9,7 +9,7 @@ public class GiveYourName {
     public static boolean viewLoop =true;
     static int viewMenu =-1;
 
-    static String name="";
+    public static String name="";
 
     public static void show(MenuCallback callback){
         viewLoop =true;
