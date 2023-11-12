@@ -42,8 +42,6 @@ public class Wumpus {
             if(scanner.hasNextInt() )
             viewMenu = scanner.nextInt();
             callback.Call(viewMenu);
-
-
         }
     }
 
