@@ -169,14 +169,6 @@ public class Hero extends FieldObject{
         return getArrowCount();
     }
 
-    public void stopGame(){
-
-    }
-
-    public void pauseGame(){
-        
-    }
-
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Hero{");
