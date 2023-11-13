@@ -41,7 +41,7 @@ public class Main {
                                                                     });
                                                                     break;
                                                                 case 4:
-                                                                    Shoot.show(shootMenu->{
+                                                                    Shoot.show(Wumpus.gameLogic,shootMenu->{
                                                                         Shoot.close();
                                                                     });
                                                                     break;

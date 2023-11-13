@@ -49,26 +49,77 @@ public class WumpusLogic {
                 List<FieldObject> filteredList= field.stream()
                         .filter(field -> field.getRow() == hero.getRow()).toList();
                 boolean heKilledTheWumpus=false;
-                for (int i=hero.getColumn(); i<matrixLength;i++){
+
+                for (int i=hero.getColumn()-65; i<matrixLength;i++){ // itt lesz gond az átlváltással 64->0
                     if(filteredList.get(i).getShortCut()=='U'){
                         //találta a nyil
                         heKilledTheWumpus=true;
+                        removeWumpusFromTheField();
+                        break;
+                    }
+                } // kitöli a wumpust a pályáról
+
+
+                return heKilledTheWumpus; // ha true, akkor megöltem a wumpuszt, ha false, akkor falnak ütközött a lövedékem, vagy nem volt nyilam
+            }
+            case South -> {
+                boolean heKilledTheWumpus=false;
+                List<FieldObject> filteredList= field.stream()
+                        .filter(field -> field.getColumn() == hero.getColumn()).toList(); //azért mert vertikálisan haladok
+                // kinyertem az oszlop azon sorait amiben a hős van
+                for (int i=hero.getRow(); i<matrixLength;i++){
+                    if(filteredList.get(i).getShortCut()=='U'){
+                        //találta a nyil
+                        heKilledTheWumpus=true;
+                        removeWumpusFromTheField();
                         break;
                     }
                 }
-                return heKilledTheWumpus;
-            }
-            case South -> {
-
+                return  heKilledTheWumpus;
             }
             case West ->{
+                // TODO: 12.11.2023 elkészíteni a kelet felé mozgó lövést
+                List<FieldObject> filteredList= field.stream()
+                        .filter(field -> field.getRow() == hero.getRow()).toList();
+                boolean heKilledTheWumpus=false;
 
+                for (int i=hero.getColumn()-65; i>0;i--){ // itt lesz gond az átlváltással 64->0, azért nagyobb min 0, mert a falat felesleges vizsgálni
+                    if(filteredList.get(i).getShortCut()=='U'){
+                        //találta a nyil
+                        heKilledTheWumpus=true;
+                        removeWumpusFromTheField();
+                        break;
+                    }
+                } // kitöli a wumpust a pályáról
+
+
+                return heKilledTheWumpus; // ha true, akkor megöltem a wumpuszt, ha false, akkor falnak ütközött a lövedékem, vagy nem volt nyilam
             }
             default -> {
-
+                // TODO: 12.11.2023 elkészítnie az észak felé mozgó lövést
+                boolean heKilledTheWumpus=false;
+                List<FieldObject> filteredList= field.stream()
+                        .filter(field -> field.getColumn() == hero.getColumn()).toList(); //azért mert vertikálisan haladok
+                for (int i=hero.getRow(); i>0;i--){
+                    if(filteredList.get(i).getShortCut()=='U'){
+                        //találta a nyil
+                        heKilledTheWumpus=true;
+                        removeWumpusFromTheField();
+                        break;
+                    }
+                }
+                return  heKilledTheWumpus;
             }
         }
-        return false;
+    }
+
+    private void removeWumpusFromTheField() {
+        for(int i=0; i< field.size(); i++) {
+            if(field.get(i).getShortCut()=='U'){
+                field.get(i).setShortCut('_');
+                break;
+            }
+        }
     }
 
     private boolean conditionForColoring(FieldObject fieldElement){
@@ -93,13 +144,13 @@ public class WumpusLogic {
             if(fieldElement.getColumn()-64==matrixLength){
                 if(fieldElement.getColumn()-64==0){
                     if(conditionForColoring(fieldElement)){
-                        System.out.printf(ConsoleColor.GREEN + "%3s\n"+ConsoleColor.RESET,fieldElement.getShortCut());
+                        System.out.printf(ConsoleColor.ANSI_GREEN_BACKGROUND + "%3s\n"+ConsoleColor.RESET,fieldElement.getShortCut());
                     }else{
                         System.out.printf("%3s\n",fieldElement.getShortCut());
                     }
                 }else{
                     if(conditionForColoring(fieldElement)){
-                        System.out.printf(ConsoleColor.GREEN + "%3s\n"+ConsoleColor.RESET,fieldElement.getShortCut());
+                        System.out.printf(ConsoleColor.ANSI_GREEN_BACKGROUND + "%3s\n"+ConsoleColor.RESET,fieldElement.getShortCut());
                     }else{
                         System.out.printf("%3s\n",fieldElement.getShortCut());
                     }
@@ -108,14 +159,14 @@ public class WumpusLogic {
             }else{
                 if(fieldElement.getColumn()=='A'){
                     if(conditionForColoring(fieldElement)){
-                        System.out.printf(ConsoleColor.GREEN + "%d\t"+ConsoleColor.RESET, fieldElement.getRow());
+                        System.out.printf(ConsoleColor.ANSI_GREEN_BACKGROUND + "%d\t"+ConsoleColor.RESET, fieldElement.getRow());
                     }else{
                         System.out.printf("%d\t", fieldElement.getRow());
                     }
 
                 }
                 if(conditionForColoring(fieldElement)){
-                    System.out.printf(ConsoleColor.GREEN +"%3s"+ConsoleColor.RESET,fieldElement.getShortCut());
+                    System.out.printf(ConsoleColor.ANSI_GREEN_BACKGROUND +"%3s"+ConsoleColor.RESET,fieldElement.getShortCut());
                 }else{
                     System.out.printf("%3s",fieldElement.getShortCut());
                 }
