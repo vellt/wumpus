@@ -68,7 +68,7 @@ public class WumpusLogic {
                     }
                     if(nextPlace.getShortCut()=='P'){
                         if(hero.getArrowCount()==1){
-                            message="Elvesztettél a mocsárban egy nyilat!";
+                            message="Elvesztettél a veremben egy nyilat!";
                         }
                         hero.lostAnArrow();
 
@@ -93,7 +93,7 @@ public class WumpusLogic {
                    }
                    if(nextPlace.getShortCut()=='P'){
                        if(hero.getArrowCount()==1){
-                           message="Elvesztettél a mocsárban egy nyilat!";
+                           message="Elvesztettél a veremben egy nyilat!";
                        }
                        hero.lostAnArrow();
 
@@ -118,7 +118,7 @@ public class WumpusLogic {
                    }
                    if(nextPlace.getShortCut()=='P'){
                        if(hero.getArrowCount()==1){
-                           message="Elvesztettél a mocsárban egy nyilat!";
+                           message="Elvesztettél a veremben egy nyilat!";
                        }
                        hero.lostAnArrow();
 
@@ -143,7 +143,7 @@ public class WumpusLogic {
                    }
                    if(nextPlace.getShortCut()=='P'){
                        if(hero.getArrowCount()==1){
-                           message="Elvesztettél a mocsárban egy nyilat!";
+                           message="Elvesztettél a veremben egy nyilat!";
                        }
                        hero.lostAnArrow();
 
