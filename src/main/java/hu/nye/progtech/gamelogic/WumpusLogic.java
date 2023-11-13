@@ -167,12 +167,18 @@ public class WumpusLogic {
                 boolean heKilledTheWumpus=false;
 
                 for (int i=hero.getColumn()-65; i<matrixLength;i++){ // itt lesz gond az átlváltással 64->0
-                    if(filteredList.get(i).getShortCut()=='U'){
-                        //találta a nyil
-                        heKilledTheWumpus=true;
-                        removeWumpusFromTheField();
+                    System.out.println(filteredList.get(i).getShortCut());
+                    if(filteredList.get(i).getShortCut()!='W'){
+                        if(filteredList.get(i).getShortCut()=='U'){
+                            //találta a nyil
+                            heKilledTheWumpus=true;
+                            removeWumpusFromTheField();
+                            break;
+                        }
+                    }else{
                         break;
                     }
+
                 }
                 hero.lostAnArrow();
                 return heKilledTheWumpus; // ha true, akkor megöltem a wumpuszt, ha false, akkor falnak ütközött a lövedékem, vagy nem volt nyilam
@@ -183,10 +189,15 @@ public class WumpusLogic {
                         .filter(field -> field.getColumn() == hero.getColumn()).toList(); //azért mert vertikálisan haladok
                 // kinyertem az oszlop azon sorait amiben a hős van
                 for (int i=hero.getRow(); i<matrixLength;i++){
-                    if(filteredList.get(i).getShortCut()=='U'){
-                        //találta a nyil
-                        heKilledTheWumpus=true;
-                        removeWumpusFromTheField();
+                    System.out.println(filteredList.get(i).getShortCut());
+                    if(filteredList.get(i).getShortCut()!='W'){
+                        if(filteredList.get(i).getShortCut()=='U'){
+                            //találta a nyil
+                            heKilledTheWumpus=true;
+                            removeWumpusFromTheField();
+                            break;
+                        }
+                    }else{
                         break;
                     }
                 }
@@ -199,11 +210,15 @@ public class WumpusLogic {
                 boolean heKilledTheWumpus=false;
 
                 for (int i=hero.getColumn()-65; i>0;i--){ // itt lesz gond az átlváltással 64->0, azért nagyobb min 0, mert a falat felesleges vizsgálni
-                    if(filteredList.get(i).getShortCut()=='U'){
-                        //találta a nyil
-                        heKilledTheWumpus=true;
-                        removeWumpusFromTheField();
-
+                    System.out.println(filteredList.get(i).getShortCut());
+                    if(filteredList.get(i).getShortCut()!='W'){
+                        if(filteredList.get(i).getShortCut()=='U'){
+                            //találta a nyil
+                            heKilledTheWumpus=true;
+                            removeWumpusFromTheField();
+                            break;
+                        }
+                    }else{
                         break;
                     }
                 }
@@ -214,11 +229,15 @@ public class WumpusLogic {
                 boolean heKilledTheWumpus=false;
                 List<FieldObject> filteredList= field.stream()
                         .filter(field -> field.getColumn() == hero.getColumn()).toList(); //azért mert vertikálisan haladok
-                for (int i=hero.getRow(); i>0;i--){
-                    if(filteredList.get(i).getShortCut()=='U'){
-                        //találta a nyil
-                        heKilledTheWumpus=true;
-                        removeWumpusFromTheField();
+                for (int i=hero.getRow()-1; i>0;i--){
+                    if(filteredList.get(i).getShortCut()!='W'){
+                        if(filteredList.get(i).getShortCut()=='U'){
+                            //találta a nyil
+                            heKilledTheWumpus=true;
+                            removeWumpusFromTheField();
+                            break;
+                        }
+                    }else{
                         break;
                     }
                 }

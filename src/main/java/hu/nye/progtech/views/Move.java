@@ -14,6 +14,7 @@ public class Move {
             System.out.println(ConsoleColor.BLUE +"-----------------Lépés--------------------"+ConsoleColor.RESET);
             System.out.println(gameLogic.goStraightAhead());
             callback.Call(-1);
+            // TODO: 13.11.2023 vesztettem??? 
         }
     }
 

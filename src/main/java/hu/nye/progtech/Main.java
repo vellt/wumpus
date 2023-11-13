@@ -5,6 +5,7 @@ import hu.nye.progtech.views.*;
 
 public class Main {
     public static void main(String[] args) {
+        System.out.println('B'-65);
         App.show((appMenu) -> {
             switch (appMenu) {
                 case 1:

@@ -23,6 +23,7 @@ public class Shoot {
                 System.out.println("Nincs több íjjad");
             }
             callback.Call(-1); // mivel nincs menüpont, a callback arra kell, hogy a loopot tötölje
+            // TODO: 13.11.2023 nyertem?? 
         }
     }
 
