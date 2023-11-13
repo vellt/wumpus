@@ -13,7 +13,16 @@ public class WumpusLogic {
     List<FieldObject> field = new ArrayList<>();
     Hero hero= new Hero();
 
+    boolean gameOver=false;
     int matrixLength=0;
+
+    public boolean isGameOver() {
+        return gameOver;
+    }
+
+    public void setGameOver(boolean gameOver) {
+        this.gameOver = gameOver;
+    }
 
     public WumpusLogic(LoadFrom loadFrom){
         switch (loadFrom){
@@ -41,56 +50,114 @@ public class WumpusLogic {
         }
     }
 
-    public  boolean goStraightAhead (){
-        //tudok arra menni? Fal van ott?
-       return switch (hero.getDirection()){
+    public  String goStraightAhead (){
+        String message="Csak így tovább!";
+       switch (hero.getDirection()){
             case East -> {
                 FieldObject nextPlace= field.stream()
                         .filter(field -> field.getRow() == hero.getRow() && field.getColumn()==hero.getColumn()+1).toList().get(0);
-                if(nextPlace.getShortCut()=='W'){
-                    yield false;
-                }else {
+               if(nextPlace.getShortCut()!='W') {
                     hero.setRow(nextPlace.getRow());
                     hero.setColumn(nextPlace.getColumn());
-                    yield true;
-                }
+                    if(nextPlace.getShortCut()=='U'){
+                        setGameOver(true); // a wumpus megölt
+                        message="A wumpus megölt!";
+                    }
+                    if(nextPlace.getShortCut()=='G'){
+                        message="Jé! Itt van egy arany! Vedd fel!";
+                    }
+                    if(nextPlace.getShortCut()=='P'){
+                        if(hero.getArrowCount()==1){
+                            message="Elvesztettél a mocsárban egy nyilat!";
+                        }
+                        hero.lostAnArrow();
+
+                    }
+
+                }else{
+                   message="Fal van előtted!";
+               }
             }
            case South -> {
                FieldObject nextPlace= field.stream()
                        .filter(field -> field.getRow() == hero.getRow()+1 && field.getColumn()==hero.getColumn()).toList().get(0);
-               if(nextPlace.getShortCut()=='W'){
-                   yield false;
-               }else {
+               if(nextPlace.getShortCut()!='W') {
                    hero.setRow(nextPlace.getRow());
                    hero.setColumn(nextPlace.getColumn());
-                   yield true;
+                   if(nextPlace.getShortCut()=='U'){
+                       setGameOver(true); // a wumpus megölt
+                       message="A wumpus megölt!";
+                   }
+                   if(nextPlace.getShortCut()=='G'){
+                       message="Jé! Itt van egy arany! Vedd fel!";
+                   }
+                   if(nextPlace.getShortCut()=='P'){
+                       if(hero.getArrowCount()==1){
+                           message="Elvesztettél a mocsárban egy nyilat!";
+                       }
+                       hero.lostAnArrow();
+
+                   }
+
+               }else{
+                   message="Fal van előtted!";
                }
            }
            case North -> {
                FieldObject nextPlace= field.stream()
                        .filter(field -> field.getRow() == hero.getRow()-1 && field.getColumn()==hero.getColumn()).toList().get(0);
-               if(nextPlace.getShortCut()=='W'){
-                   yield false;
-               }else {
+               if(nextPlace.getShortCut()!='W') {
                    hero.setRow(nextPlace.getRow());
                    hero.setColumn(nextPlace.getColumn());
-                   yield true;
+                   if(nextPlace.getShortCut()=='U'){
+                       setGameOver(true); // a wumpus megölt
+                       message="A wumpus megölt!";
+                   }
+                   if(nextPlace.getShortCut()=='G'){
+                       message="Jé! Itt van egy arany! Vedd fel!";
+                   }
+                   if(nextPlace.getShortCut()=='P'){
+                       if(hero.getArrowCount()==1){
+                           message="Elvesztettél a mocsárban egy nyilat!";
+                       }
+                       hero.lostAnArrow();
+
+                   }
+
+               }else{
+                   message="Fal van előtted!";
                }
            }
            default -> {
                FieldObject nextPlace= field.stream()
                        .filter(field -> field.getRow() == hero.getRow() && field.getColumn()==hero.getColumn()-1).toList().get(0);
-               if(nextPlace.getShortCut()=='W'){
-                   yield false;
-               }else {
+               if(nextPlace.getShortCut()!='W') {
                    hero.setRow(nextPlace.getRow());
                    hero.setColumn(nextPlace.getColumn());
-                   yield true;
+                   if(nextPlace.getShortCut()=='U'){
+                       setGameOver(true); // a wumpus megölt
+                       message="A wumpus megölt!";
+                   }
+                   if(nextPlace.getShortCut()=='G'){
+                       message="Jé! Itt van egy arany! Vedd fel!";
+                   }
+                   if(nextPlace.getShortCut()=='P'){
+                       if(hero.getArrowCount()==1){
+                           message="Elvesztettél a mocsárban egy nyilat!";
+                       }
+                       hero.lostAnArrow();
+
+                   }
+
+               }else{
+                   message="Fal van előtted!";
                }
            }
-        };
+        }
+        return message;
 
     }
+
 
     public boolean shootWithArrow(){
         switch (hero.getDirection()){
@@ -106,9 +173,8 @@ public class WumpusLogic {
                         removeWumpusFromTheField();
                         break;
                     }
-                } // kitöli a wumpust a pályáról
-
-
+                }
+                hero.lostAnArrow();
                 return heKilledTheWumpus; // ha true, akkor megöltem a wumpuszt, ha false, akkor falnak ütközött a lövedékem, vagy nem volt nyilam
             }
             case South -> {
@@ -124,10 +190,10 @@ public class WumpusLogic {
                         break;
                     }
                 }
+                hero.lostAnArrow();
                 return  heKilledTheWumpus;
             }
             case West ->{
-                // TODO: 12.11.2023 elkészíteni a kelet felé mozgó lövést
                 List<FieldObject> filteredList= field.stream()
                         .filter(field -> field.getRow() == hero.getRow()).toList();
                 boolean heKilledTheWumpus=false;
@@ -137,15 +203,14 @@ public class WumpusLogic {
                         //találta a nyil
                         heKilledTheWumpus=true;
                         removeWumpusFromTheField();
+
                         break;
                     }
-                } // kitöli a wumpust a pályáról
-
-
+                }
+                hero.lostAnArrow();
                 return heKilledTheWumpus; // ha true, akkor megöltem a wumpuszt, ha false, akkor falnak ütközött a lövedékem, vagy nem volt nyilam
             }
             default -> {
-                // TODO: 12.11.2023 elkészítnie az észak felé mozgó lövést
                 boolean heKilledTheWumpus=false;
                 List<FieldObject> filteredList= field.stream()
                         .filter(field -> field.getColumn() == hero.getColumn()).toList(); //azért mert vertikálisan haladok
@@ -157,6 +222,7 @@ public class WumpusLogic {
                         break;
                     }
                 }
+                hero.lostAnArrow();
                 return  heKilledTheWumpus;
             }
         }
