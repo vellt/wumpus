@@ -30,7 +30,7 @@ public class Wumpus {
             System.out.println("Hős adatai:");
             System.out.println("neve: " + ConsoleColor.GREEN +gameLogic.getHero().getName() +ConsoleColor.RESET);
             System.out.println("pozíciója: "+ ConsoleColor.GREEN +gameLogic.getHero().getColumn()+","+gameLogic.getHero().getRow()+ConsoleColor.RESET);
-            System.out.println("iránya: "+ ConsoleColor.GREEN +gameLogic.getHero().getDirectionAsHU()+ConsoleColor.RESET);
+            System.out.println("iránya: "+ ConsoleColor.GREEN +gameLogic.getHero().getDirectionAsCharacter()+ConsoleColor.RESET);
             System.out.println("arany: "+ ConsoleColor.GREEN +gameLogic.getHero().hasGold()+ConsoleColor.RESET);
             System.out.println("nyilak száma: "+ ConsoleColor.GREEN +gameLogic.getHero().getArrowCount()+ConsoleColor.RESET);
 

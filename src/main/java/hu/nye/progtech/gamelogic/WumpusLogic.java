@@ -43,6 +43,57 @@ public class WumpusLogic {
         }
     }
 
+    public  boolean goStraightAhead (){
+        //tudok arra menni? Fal van ott?
+       return switch (hero.getDirection()){
+            case East -> {
+                FieldObject nextPlace= field.stream()
+                        .filter(field -> field.getRow() == hero.getRow() && field.getColumn()==hero.getColumn()+1).toList().get(0);
+                if(nextPlace.getShortCut()=='W'){
+                    yield false;
+                }else {
+                    hero.setRow(nextPlace.getRow());
+                    hero.setColumn(nextPlace.getColumn());
+                    yield true;
+                }
+            }
+           case South -> {
+               FieldObject nextPlace= field.stream()
+                       .filter(field -> field.getRow() == hero.getRow()+1 && field.getColumn()==hero.getColumn()).toList().get(0);
+               if(nextPlace.getShortCut()=='W'){
+                   yield false;
+               }else {
+                   hero.setRow(nextPlace.getRow());
+                   hero.setColumn(nextPlace.getColumn());
+                   yield true;
+               }
+           }
+           case North -> {
+               FieldObject nextPlace= field.stream()
+                       .filter(field -> field.getRow() == hero.getRow()-1 && field.getColumn()==hero.getColumn()).toList().get(0);
+               if(nextPlace.getShortCut()=='W'){
+                   yield false;
+               }else {
+                   hero.setRow(nextPlace.getRow());
+                   hero.setColumn(nextPlace.getColumn());
+                   yield true;
+               }
+           }
+           default -> {
+               FieldObject nextPlace= field.stream()
+                       .filter(field -> field.getRow() == hero.getRow() && field.getColumn()==hero.getColumn()-1).toList().get(0);
+               if(nextPlace.getShortCut()=='W'){
+                   yield false;
+               }else {
+                   hero.setRow(nextPlace.getRow());
+                   hero.setColumn(nextPlace.getColumn());
+                   yield true;
+               }
+           }
+        };
+
+    }
+
     public boolean shootWithArrow(){
         switch (hero.getDirection()){
             case East -> {

@@ -56,12 +56,12 @@ public class Hero extends FieldObject{
         this.direction = direction;
     }
 
-    public String getDirectionAsHU(){
+    public String getDirectionAsCharacter(){
         return switch (direction){
-            case East -> "Nyugat";
-            case South -> "Dél";
-            case West -> "Kelet";
-            default -> "Észak";
+            case East -> "→";
+            case South -> "↓";
+            case West -> "←";
+            default -> "↑";
         };
     }
 

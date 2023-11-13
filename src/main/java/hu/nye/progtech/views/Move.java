@@ -13,6 +13,10 @@ public class Move {
         while (viewLoop){
             System.out.println(ConsoleColor.BLUE +"-----------------Lépés--------------------"+ConsoleColor.RESET);
             System.out.println("Nincs implementálva-->kilépés");
+            // ha tudunk erre lépni, akkor legyen ez az új értékem,
+            gameLogic.goStraightAhead();
+            // ellenőrízzük, hogy ki, vaqy mi van  ott, wumpus van ott? pit van ott? vagy arany
+            // ha nem tudnk arra lépni, az azért van mert fal van ott!
             callback.Call(-1);
         }
     }

@@ -13,7 +13,7 @@ public class TurnRight {
         while (viewLoop){
             System.out.println(ConsoleColor.BLUE +"-----------------Jobbra fordulás--------------------"+ConsoleColor.RESET);
             gameLogic.getHero().turnRight() ;
-            System.out.println("A  hősöd most már " + gameLogic.getHero().getDirectionAsHU() + "i irányba néz");
+            System.out.println("A  hősöd most már " + gameLogic.getHero().getDirectionAsCharacter() + "i irányba néz");
             callback.Call(-1);
         }
     }
