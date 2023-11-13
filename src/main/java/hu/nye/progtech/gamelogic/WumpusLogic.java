@@ -7,7 +7,6 @@ import hu.nye.progtech.models.Hero;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.IntStream;
 
 public class WumpusLogic {
@@ -30,15 +29,14 @@ public class WumpusLogic {
         return this.hero;
     }
 
-    public boolean isThereAGoldWhereWeAre(){
-        Optional<FieldObject> firstFieldWithG = field.stream()
-                .filter(field -> field.getShortCut() == 'G')
-                .findFirst();
-
-        if (firstFieldWithG.isPresent()) {
-            FieldObject result = firstFieldWithG.get();
-            return result.getColumn() == getHero().getColumn() && result.getRow() == getHero().getRow();
-        } else {
+    public boolean takeTheGold(){
+        FieldObject currentPlace= field.stream()
+                .filter(field -> field.getRow() == hero.getRow() && field.getColumn()==hero.getColumn()).toList().get(0);
+        if(currentPlace.getShortCut()=='G'){
+            currentPlace.setShortCut('_');
+            hero.setThereIsGold(true);
+            return true;
+        }else{
             return false;
         }
     }

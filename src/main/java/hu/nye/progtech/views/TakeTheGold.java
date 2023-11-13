@@ -13,7 +13,7 @@ public class TakeTheGold {
         viewLoop =true;
         while (viewLoop){
             System.out.println(ConsoleColor.BLUE +"-----------------Arany felvétele--------------------"+ConsoleColor.RESET);
-            if(gameLogic.isThereAGoldWhereWeAre()){
+            if(gameLogic.takeTheGold()){
                 System.out.println("Felvetted az aranyat");
             }else{
                 System.out.println("A helyen ahol állsz nincs arany");
