@@ -1,21 +1,22 @@
 package hu.nye.progtech.views;
 
+import hu.nye.progtech.gamelogic.WumpusLogic;
+import hu.nye.progtech.models.ConsoleColor;
+import hu.nye.progtech.models.MenuCallback;
+
 public class Win {
 
     public static boolean viewLoop =true;
 
-    public static void show(){
+    static int viewMenu =-1;
+
+    public static void show(WumpusLogic wumpusLogic, MenuCallback callback){
         viewLoop =true;
         while (viewLoop){
-            System.out.println("*******WUMPUS*********");
-            System.out.println(" belépés");
-            System.out.println("**********************");
-            System.out.print("felhasználónév: ");
+            System.out.println(ConsoleColor.BLUE +"-----------------Nyertél--------------------"+ConsoleColor.RESET);
+            System.out.println("Gratulálok! Sikerült "+ wumpusLogic.getStepCounter() +" lépés számmal visszatérned az arannyal a kezdőpontra!");
+            callback.Call(viewMenu);
         }
-    }
-
-    public static void repeat(){
-        viewLoop =true;
     }
 
     public static boolean close(){

@@ -15,7 +15,7 @@ public class App {
         while (viewLoop){
             System.out.println(ConsoleColor.BLUE+"-----------------APP--------------------"+ConsoleColor.RESET);
             Scanner scanner= new Scanner(System.in);
-            System.out.println(ConsoleColor.GREEN +"1."+ConsoleColor.RESET+" Játék");
+            System.out.println(ConsoleColor.GREEN +"1."+ConsoleColor.RESET+" Játék indítása");
             System.out.println(ConsoleColor.GREEN +"2."+ConsoleColor.RESET+" Kilépés");
             System.out.print("menü: ");
             if(scanner.hasNextInt() )

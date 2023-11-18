@@ -13,7 +13,21 @@ public class WumpusLogic {
     List<FieldObject> field = new ArrayList<>();
     Hero hero= new Hero();
 
+    int stepCounter=0;
+
+    public int getStepCounter() {
+        return stepCounter;
+    }
+
+    FieldObject startFieldOfTheHero;
+
     boolean gameOver=false;
+    boolean win=false;
+
+    public boolean isWin() {
+        return win;
+    }
+
     int matrixLength=0;
 
     public boolean isGameOver() {
@@ -29,6 +43,11 @@ public class WumpusLogic {
             case file:
                 FieldLoader loader= new FieldLoader();
                 hero= loader.getHero();
+                startFieldOfTheHero= new FieldObject(
+                        hero.getShortCut(),
+                        hero.getColumn(),
+                        hero.getRow()
+                ); // beállítjuk a kezdeti értéket, mert ez lesz a cél
                 field = loader.getField();
                 matrixLength=loader.getMatrixLength();
                 break;
@@ -50,8 +69,16 @@ public class WumpusLogic {
         }
     }
 
+    // minden lépésnél ellenrzöm
+    private void winStateChecker(){
+        if(hero.hasGold() && hero.getColumn()==startFieldOfTheHero.getColumn() && hero.getRow()==startFieldOfTheHero.getRow()){
+            // nyertem
+            win=true;
+        }
+    }
+
     public  String goStraightAhead (){
-        String message="Csak így tovább!";
+       String message="Csak így tovább!";
        switch (hero.getDirection()){
             case East -> {
                 FieldObject nextPlace= field.stream()
@@ -71,9 +98,8 @@ public class WumpusLogic {
                             message="Elvesztettél a veremben egy nyilat!";
                         }
                         hero.lostAnArrow();
-
                     }
-
+                    stepCounter++;
                 }else{
                    message="Fal van előtted!";
                }
@@ -98,7 +124,7 @@ public class WumpusLogic {
                        hero.lostAnArrow();
 
                    }
-
+                   stepCounter++;
                }else{
                    message="Fal van előtted!";
                }
@@ -123,7 +149,7 @@ public class WumpusLogic {
                        hero.lostAnArrow();
 
                    }
-
+                    stepCounter++;
                }else{
                    message="Fal van előtted!";
                }
@@ -148,12 +174,13 @@ public class WumpusLogic {
                        hero.lostAnArrow();
 
                    }
-
+                      stepCounter++;   
                }else{
                    message="Fal van előtted!";
                }
            }
         }
+        winStateChecker();
         return message;
 
     }

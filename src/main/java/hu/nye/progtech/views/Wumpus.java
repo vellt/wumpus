@@ -49,8 +49,12 @@ public class Wumpus {
         }
     }
 
-    public static boolean hasWin(){
-        return isWin;
+    public static boolean isWin(){
+        return gameLogic.isWin();
+    }
+
+    public static boolean isGameOver(){
+        return gameLogic.isGameOver();
     }
 
     public static void repeat(){

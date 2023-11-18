@@ -62,9 +62,15 @@ public class Main {
                                                                     });
                                                                     break;
                                                             }
-                                                            if(Wumpus.hasWin()){
-                                                                Win.show();
-                                                                Win.close();
+                                                            if(Wumpus.isWin()){
+                                                                Win.show(Wumpus.gameLogic,winMenu ->Win.close() );
+                                                                Wumpus.close();
+                                                                GiveYourName.close();
+                                                                StartNewGame.close();
+                                                                StartGame.close();
+                                                            }
+                                                            if(Wumpus.isGameOver()){
+                                                                GameOver.show(gameOverMenu ->GameOver.close() );
                                                                 Wumpus.close();
                                                                 GiveYourName.close();
                                                                 StartNewGame.close();
