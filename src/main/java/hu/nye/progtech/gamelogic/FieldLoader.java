@@ -1,15 +1,15 @@
 package hu.nye.progtech.gamelogic;
 
-import hu.nye.progtech.models.Direction;
-import hu.nye.progtech.models.FieldObject;
-import hu.nye.progtech.models.Hero;
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+
+import hu.nye.progtech.models.Direction;
+import hu.nye.progtech.models.FieldObject;
+import hu.nye.progtech.models.Hero;
 
 public class FieldLoader {
 
@@ -65,7 +65,7 @@ public class FieldLoader {
             }
 
             // System.out.println(content);
-        } catch (IOException e) {
+        } catch ( IOException e) {
             e.printStackTrace();
         }
     }
