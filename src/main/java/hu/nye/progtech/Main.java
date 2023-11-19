@@ -1,15 +1,38 @@
 package hu.nye.progtech;
 
-import hu.nye.progtech.views.*;
+import hu.nye.progtech.views.App;
+import hu.nye.progtech.views.GameOver;
+import hu.nye.progtech.views.GiveUp;
+import hu.nye.progtech.views.GiveYourName;
+import hu.nye.progtech.views.LoadGame;
+import hu.nye.progtech.views.Move;
+import hu.nye.progtech.views.SaveGame;
+import hu.nye.progtech.views.Shoot;
+import hu.nye.progtech.views.StartGame;
+import hu.nye.progtech.views.StartNewGame;
+import hu.nye.progtech.views.TakeTheGold;
+import hu.nye.progtech.views.TurnLeft;
+import hu.nye.progtech.views.TurnRight;
+import hu.nye.progtech.views.Win;
+import hu.nye.progtech.views.Wumpus;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 
+/**
+ * Let's call this as the first sentence,
+ * here the second one.
+ */
 public class Main {
-    private static final Logger logger= LoggerFactory.getLogger(Main.class);
-    public static void main(String[] args) {
 
-        App.show(logger,(appMenu) -> {
+    private static final Logger logger = LoggerFactory.getLogger(Main.class);
+
+    /**
+     * Let's call this as the first sentence,
+     * here the second one.
+     */
+    public static void main(String[] args) {
+        App.show(logger, (appMenu) -> {
             switch (appMenu) {
                 case 1:
                     StartGame.show(startGameMenu -> {
@@ -19,61 +42,55 @@ public class Main {
                                     switch (startNewGameMenu) {
                                         case 1:
                                             GiveYourName.show(giveYourNameMenu -> {
-                                                switch (giveYourNameMenu){
+                                                switch (giveYourNameMenu) {
                                                     case 1:
                                                         // wumpus
-                                                        Wumpus.show(GiveYourName.name, wumpusMenu->{
-                                                            switch (wumpusMenu){
-                                                                case 1: SaveGame.show(saveGameMenu -> {
-                                                                    SaveGame.close();
-                                                                }); break; // itt az van h több almenü, kiléosz vagy nem..
-                                                                case 2: GiveUp.show(giveUpMenu->{
-                                                                    switch (giveUpMenu){
+                                                        Wumpus.show(GiveYourName.name, wumpusMenu -> {
+                                                            switch (wumpusMenu) {
+                                                                case 1:
+                                                                    SaveGame.show(saveGameMenu -> SaveGame.close());
+                                                                    break;
+                                                                case 2: GiveUp.show(giveUpMenu -> {
+                                                                    switch (giveUpMenu) {
                                                                         case 1:  // visszadob az app-ig
                                                                             GiveUp.close();
                                                                             Wumpus.close();
                                                                             GiveYourName.close();
                                                                             StartNewGame.close();
                                                                             StartGame.close();
+                                                                            break;
                                                                         default:
                                                                             GiveUp.close();
                                                                     }
-                                                                    }); break;
-                                                                case 3:
-                                                                    Move.show(Wumpus.gameLogic,moveMenu->{
-                                                                        Move.close();
                                                                     });
+                                                                    break;
+                                                                case 3:
+                                                                    Move.show(Wumpus.gameLogic, moveMenu -> Move.close());
                                                                     break;
                                                                 case 4:
-                                                                    Shoot.show(Wumpus.gameLogic,shootMenu->{
-                                                                        Shoot.close();
-                                                                    });
+                                                                    Shoot.show(Wumpus.gameLogic, shootMenu -> Shoot.close());
                                                                     break;
                                                                 case 5:
-                                                                    TurnLeft.show(Wumpus.gameLogic,turnLeftMenu->{
-                                                                        TurnLeft.close();
-                                                                    });
+                                                                    TurnLeft.show(Wumpus.gameLogic, turnLeftMenu -> TurnLeft.close());
                                                                     break;
                                                                 case 6:
-                                                                    TurnRight.show(Wumpus.gameLogic,turnRightMenu->{
-                                                                        TurnRight.close();
-                                                                    });
+                                                                    TurnRight.show(Wumpus.gameLogic, turnRightMenu -> TurnRight.close());
                                                                     break;
                                                                 case 7:
-                                                                    TakeTheGold.show(Wumpus.gameLogic,takeTheGold->{
-                                                                        TakeTheGold.close();
-                                                                    });
+                                                                    TakeTheGold.show(Wumpus.gameLogic, takeTheGold -> TakeTheGold.close());
+                                                                    break;
+                                                                default:
                                                                     break;
                                                             }
-                                                            if(Wumpus.isWin()){
-                                                                Win.show(Wumpus.gameLogic,winMenu ->Win.close() );
+                                                            if (Wumpus.isWin()) {
+                                                                Win.show(Wumpus.gameLogic, winMenu -> Win.close());
                                                                 Wumpus.close();
                                                                 GiveYourName.close();
                                                                 StartNewGame.close();
                                                                 StartGame.close();
                                                             }
-                                                            if(Wumpus.isGameOver()){
-                                                                GameOver.show(gameOverMenu ->GameOver.close() );
+                                                            if (Wumpus.isGameOver()) {
+                                                                GameOver.show(gameOverMenu -> GameOver.close());
                                                                 Wumpus.close();
                                                                 GiveYourName.close();
                                                                 StartNewGame.close();

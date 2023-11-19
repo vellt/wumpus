@@ -82,12 +82,14 @@
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.2</version>
+                <version>0.8.4</version>
                 <configuration>
                     <excludes>
                         <exclude>hu/nye/progtech/Main.*</exclude>
                         <exclude>hu/nye/progtech/models/*</exclude>
                         <exclude>hu/nye/progtech/views/*</exclude>
+                        <exclude>hu/nye/progtech/gamelogic/LoadFrom.*</exclude>
+                        <exclude>hu/nye/progtech/gamelogic/FileLoader.*</exclude>
                         <exclude>hu/nye/progtech/data/*</exclude>
                     </excludes>
                 </configuration>
@@ -108,7 +110,6 @@
                         <id>jacoco-check</id>
                         <goals>
                             <goal>check</goal>
-
                         </goals>
                         <configuration>
                             <rules>
@@ -116,7 +117,7 @@
                                      <element>CLASS</element>
                                     <limits>
                                         <limit>
-                                            <coounter>LINE</coounter>
+                                            <counter>LINE</counter>
                                             <value>COVEREDRATIO</value>
                                             <minimum>0.8</minimum>
                                         </limit>

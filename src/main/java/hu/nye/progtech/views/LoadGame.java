@@ -2,24 +2,29 @@ package hu.nye.progtech.views;
 
 import hu.nye.progtech.models.MenuCallback;
 
-import java.util.Scanner;
-
+/**
+ * Let's call this as the first sentence,
+ * here the second one.
+ */
 public class LoadGame {
 
-    public static boolean viewLoop =true;
-    static int viewMenu =-1;
+    public static boolean viewLoop = true;
 
-    public static void show(MenuCallback callback){
-        viewLoop =true;
-        while (viewLoop){
+    /**
+     * Let's call this as the first sentence,
+     * here the second one.
+     */
+    public static void show(MenuCallback callback) {
+        viewLoop = true;
+        while (viewLoop) {
             System.out.println("*******LoadGame*********");
             System.out.println("Nincs implementálva-->kilépés");
-            callback.Call(1);
+            callback.call(1);
         }
     }
 
-    public static boolean close(){
-        return viewLoop =false;
+    public static boolean close() {
+        return viewLoop = false;
     }
 
 

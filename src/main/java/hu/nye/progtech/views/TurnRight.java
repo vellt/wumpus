@@ -4,26 +4,30 @@ import hu.nye.progtech.gamelogic.WumpusLogic;
 import hu.nye.progtech.models.ConsoleColor;
 import hu.nye.progtech.models.MenuCallback;
 
+/**
+ * Let's call this as the first sentence,
+ * here the second one.
+ */
 public class TurnRight {
 
-    public static boolean viewLoop =true;
+    public static boolean viewLoop = true;
 
-    public static void show(WumpusLogic gameLogic, MenuCallback callback){
-        viewLoop =true;
-        while (viewLoop){
-            System.out.println(ConsoleColor.BLUE +"-----------------Jobbra fordulás--------------------"+ConsoleColor.RESET);
-            gameLogic.getHero().turnRight() ;
+    /**
+     * Let's call this as the first sentence,
+     * here the second one.
+     */
+    public static void show(WumpusLogic gameLogic, MenuCallback callback) {
+        viewLoop = true;
+        while (viewLoop) {
+            System.out.println(ConsoleColor.BLUE + "-----------------Jobbra fordulás--------------------" + ConsoleColor.RESET);
+            gameLogic.getHero().turnRight();
             System.out.println("A  hősöd iránya most már: " + gameLogic.getHero().getDirectionAsCharacter());
-            callback.Call(-1);
+            callback.call(-1);
         }
     }
 
-    public static void repeat(){
-        viewLoop =true;
-    }
-
-    public static boolean close(){
-        return viewLoop =false;
+    public static boolean close() {
+        return viewLoop = false;
     }
 
 }

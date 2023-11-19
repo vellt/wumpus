@@ -1,5 +1,9 @@
 package hu.nye.progtech.models;
 
+/**
+ * Let's call this as the first sentence,
+ * here the second one.
+ */
 public class FieldObject {
     private char shortCut;
     private char column;

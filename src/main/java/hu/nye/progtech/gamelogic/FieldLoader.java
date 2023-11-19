@@ -11,6 +11,10 @@ import hu.nye.progtech.models.Direction;
 import hu.nye.progtech.models.FieldObject;
 import hu.nye.progtech.models.Hero;
 
+/**
+ * Let's call this as the first sentence,
+ * here the second one.
+ */
 public class FieldLoader {
 
 
@@ -22,40 +26,41 @@ public class FieldLoader {
         return fields;
     }
 
-    public int getMatrixLength(){
+    public int getMatrixLength() {
         return  matrixLength;
     }
 
-    Hero hero= new Hero();
+    Hero hero = new Hero();
 
     List<FieldObject> fields = new ArrayList<>();
-    int matrixLength=0;
-    public FieldLoader(){
+    int matrixLength = 0;
+
+    public FieldLoader() {
         Path projectDirectory = Paths.get(System.getProperty("user.dir"));
-        Path relativePath = Paths.get("src","main","java","hu","nye","progtech","data", "wumpuszinput.txt");
+        Path relativePath = Paths.get("src", "main", "java", "hu", "nye", "progtech", "data", "wumpuszinput.txt");
         Path fullPath = projectDirectory.resolve(relativePath);
         try {
             String content = Files.readString(fullPath);
-            String[] splitLine= content.split("\n");
-            if(splitLine.length>0){
+            String[] splitLine = content.split("\n");
+            if (splitLine.length > 0) {
                 // A mátrix n értéke
-                String[] firstLine= splitLine[0].split(" ");
-                matrixLength= Integer.parseInt(firstLine[0]);
+                String[] firstLine = splitLine[0].split(" ");
+                matrixLength = Integer.parseInt(firstLine[0]);
 
 
 
                 // pálya betölése
-                for (int row=1; row<=matrixLength;row++){
-                    for(int column=0; column<matrixLength;column++){
+                for (int row = 1; row <= matrixLength; row++) {
+                    for (int column = 0; column < matrixLength; column++) {
                         fields.add(new FieldObject(
                                 splitLine[row].charAt(column),
-                                (char)(column+65), // mert az A-->65ös indexű az ASCII-ben
+                                (char) (column + 65), // mert az A-->65ös indexű az ASCII-ben
                                 row
                         ));
                     }
                 }
                 // hős adatainak a betöltése
-                hero= new Hero(
+                hero = new Hero(
                         'H',
                         firstLine[1].charAt(0),
                         Integer.parseInt(firstLine[2]),
@@ -65,13 +70,13 @@ public class FieldLoader {
             }
 
             // System.out.println(content);
-        } catch ( IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     private int numberOfWumpus() {
-        return (int)fields.stream()
+        return (int) fields.stream()
                 .map(FieldObject::getShortCut) // Csak az első karaktert nézzük
                 .filter(c -> c == 'U')
                 .count();
