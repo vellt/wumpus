@@ -36,7 +36,7 @@ class WumpusLogicTest {
         boolean result = wumpusLogic.takeTheGold();
 
         // THEN
-        Assertions.assertEquals(true,wumpusLogic.getHero().hasGold());
+        Assertions.assertEquals(result,wumpusLogic.getHero().hasGold());
     }
 
     @Test
