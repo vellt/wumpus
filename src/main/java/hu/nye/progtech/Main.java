@@ -1,12 +1,15 @@
 package hu.nye.progtech;
 
 import hu.nye.progtech.views.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 public class Main {
+    private static final Logger logger= LoggerFactory.getLogger(Main.class);
     public static void main(String[] args) {
-        System.out.println('B'-65);
-        App.show((appMenu) -> {
+
+        App.show(logger,(appMenu) -> {
             switch (appMenu) {
                 case 1:
                     StartGame.show(startGameMenu -> {

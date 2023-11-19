@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="36e1bedb-b87b-498e-8453-5a63fc33c205" name="Changes" comment="some changes">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="Class" />
+        <option value="JUnit5 Test Class" />
+        <option value="package-info" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2Y2DZG13ojgEM3xCOYT2SfKEzNb" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/epam/wumpus",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\epam\wumpus" />
+      <recent name="C:\Users\Szántó Benjámin\IdeaProjects\wumpus\config\checkstyle" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="hu.nye.progtech.gamelogic" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="hu.nye.progtech.Main" />
+      <module name="wumpus" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="hu.nye.progtech.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WumpusLogicTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="wumpus" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="hu.nye.progtech.gamelogic.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="hu.nye.progtech.gamelogic" />
+      <option name="MAIN_CLASS_NAME" value="hu.nye.progtech.gamelogic.WumpusLogicTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WumpusLogicTest.goStraightAhead_ShouldMoveHeroEastAndUpdateStepCounter" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="wumpus" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="hu.nye.progtech.gamelogic.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="hu.nye.progtech.gamelogic" />
+      <option name="MAIN_CLASS_NAME" value="hu.nye.progtech.gamelogic.WumpusLogicTest" />
+      <option name="METHOD_NAME" value="goStraightAhead_ShouldMoveHeroEastAndUpdateStepCounter" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WumpusLogicTest.takeTheGold_ShouldSetHeroHasGoldToTrue" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="wumpus" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="hu.nye.progtech.gamelogic.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="hu.nye.progtech.gamelogic" />
+      <option name="MAIN_CLASS_NAME" value="hu.nye.progtech.gamelogic.WumpusLogicTest" />
+      <option name="METHOD_NAME" value="takeTheGold_ShouldSetHeroHasGoldToTrue" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WumpusLogicTests.goStraightAhead_ShouldMoveHeroEastAndUpdateStepCounter" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="wumpus" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="WumpusLogicTests" />
+      <option name="METHOD_NAME" value="goStraightAhead_ShouldMoveHeroEastAndUpdateStepCounter" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.WumpusLogicTest" />
+        <item itemvalue="JUnit.WumpusLogicTest.takeTheGold_ShouldSetHeroHasGoldToTrue" />
+        <item itemvalue="JUnit.WumpusLogicTest.goStraightAhead_ShouldMoveHeroEastAndUpdateStepCounter" />
+        <item itemvalue="JUnit.WumpusLogicTests.goStraightAhead_ShouldMoveHeroEastAndUpdateStepCounter" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="36e1bedb-b87b-498e-8453-5a63fc33c205" name="Changes" comment="" />
+      <created>1699714836554</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1699714836554</updated>
+    </task>
+    <task id="LOCAL−00001" summary="logback.xml added">
+      <option name="closed" value="true" />
+      <created>1700402790853</created>
+      <option name="number" value="LOCAL−00001" />
+      <option name="presentableId" value="LOCAL−00001" />
+      <updated>1700402790853</updated>
+    </task>
+    <task id="LOCAL−00002" summary="some changes">
+      <option name="closed" value="true" />
+      <created>1700403163487</created>
+      <option name="number" value="LOCAL−00002" />
+      <option name="presentableId" value="LOCAL−00002" />
+      <updated>1700403163487</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="logback.xml added" />
+    <MESSAGE value="some changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="some changes" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/wumpus$WumpusLogicTest.ic" NAME="WumpusLogicTest Coverage Results" MODIFIED="1700352085715" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>hu.nye.progtech.gamelogic.*</FILTER>
+    </SUITE>
+  </component>
+</project>

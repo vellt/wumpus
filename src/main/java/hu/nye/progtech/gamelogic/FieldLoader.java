@@ -60,7 +60,7 @@ public class FieldLoader {
                         firstLine[1].charAt(0),
                         Integer.parseInt(firstLine[2]),
                         getCorrectDirection(firstLine[3].charAt(0)),
-                        specifiedFieldCounter('U'), //azért mert annyi nyillal kezd amennyi wumpus van
+                        numberOfWumpus(), //azért mert annyi nyillal kezd amennyi wumpus van
                         "unknow");
             }
 
@@ -70,10 +70,10 @@ public class FieldLoader {
         }
     }
 
-    private int specifiedFieldCounter(char shortCut) {
+    private int numberOfWumpus() {
         return (int)fields.stream()
                 .map(FieldObject::getShortCut) // Csak az első karaktert nézzük
-                .filter(c -> c == shortCut)
+                .filter(c -> c == 'U')
                 .count();
     }
 

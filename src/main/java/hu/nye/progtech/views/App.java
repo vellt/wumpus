@@ -1,5 +1,6 @@
 package hu.nye.progtech.views;
 
+import org.slf4j.Logger;
 import hu.nye.progtech.models.ConsoleColor;
 import hu.nye.progtech.models.MenuCallback;
 
@@ -10,7 +11,8 @@ public class App {
     public static boolean viewLoop =true;
     static int viewMenu =-1;
 
-    public static void show(MenuCallback callback){
+    public static void show(Logger logger, MenuCallback callback){
+        logger.info("Játék elindítva");
         viewLoop =true;
         while (viewLoop){
             System.out.println(ConsoleColor.BLUE+"-----------------APP--------------------"+ConsoleColor.RESET);
@@ -23,6 +25,7 @@ public class App {
 
             callback.Call(viewMenu);
         }
+        logger.info("Játék bezárva");
     }
 
     public static void close(){

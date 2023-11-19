@@ -1,0 +1,12 @@
+2023-11-19 13:08:46.658 [main] INFO  hu.nye.progtech.Main - info message
+2023-11-19 13:08:46.660 [main] WARN  hu.nye.progtech.Main - warn message
+2023-11-19 13:08:46.660 [main] ERROR hu.nye.progtech.Main - error message
+2023-11-19 13:08:55.916 [main] INFO  hu.nye.progtech.Main - info message
+2023-11-19 13:08:55.918 [main] WARN  hu.nye.progtech.Main - warn message
+2023-11-19 13:08:55.919 [main] ERROR hu.nye.progtech.Main - error message
+2023-11-19 13:09:01.476 [main] INFO  hu.nye.progtech.Main - info message
+2023-11-19 13:09:01.479 [main] WARN  hu.nye.progtech.Main - warn message
+2023-11-19 13:09:01.479 [main] ERROR hu.nye.progtech.Main - error message
+2023-11-19 13:16:49.759 [main] INFO  hu.nye.progtech.Main - trace fghmessage
+2023-11-19 13:16:49.798 [main] INFO  hu.nye.progtech.Main - trace fghmessage
+2023-11-19 13:16:49.798 [main] INFO  hu.nye.progtech.Main - trace fghmessage
