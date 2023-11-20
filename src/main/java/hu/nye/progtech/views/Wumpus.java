@@ -63,6 +63,9 @@ public class Wumpus {
     }
 
     public static boolean isWin() {
+        if (gameLogic.isWin()) {
+            FieldDrawer.draw(gameLogic);
+        }
         return gameLogic.isWin();
     }
 
