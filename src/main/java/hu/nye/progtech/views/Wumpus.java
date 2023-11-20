@@ -2,6 +2,7 @@ package hu.nye.progtech.views;
 
 import java.util.Scanner;
 
+import hu.nye.progtech.gamelogic.FieldDrawer;
 import hu.nye.progtech.gamelogic.LoadFrom;
 import hu.nye.progtech.gamelogic.WumpusLogic;
 import hu.nye.progtech.models.ConsoleColor;
@@ -17,7 +18,6 @@ public class Wumpus {
 
     public static boolean viewLoop = true;
     static int viewMenu = -1;
-    static boolean isWin;
 
    public static WumpusLogic gameLogic = new WumpusLogic(LoadFrom.file);
 
@@ -31,7 +31,7 @@ public class Wumpus {
         while (viewLoop) {
             System.out.println(ConsoleColor.BLUE + "-----------------Wumpus--------------------" + ConsoleColor.RESET);
             // kezdő pálya betöltése
-            gameLogic.drawField();
+            FieldDrawer.draw(gameLogic);
 
             // hős adatai
             gameLogic.getHero().setName(name);

@@ -1,7 +1,6 @@
 package hu.nye.progtech.gamelogic;
 
 import hu.nye.progtech.models.Direction;
-import hu.nye.progtech.models.FieldObject;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -85,6 +84,45 @@ class WumpusLogicTest {
         Assertions.assertEquals(true, wumpusLogic.shootWithArrow());
     }
 
+    @Test
+    void testShootWithArrowShouldKillTheWumpusWhenIAmShootingAtThatDirectionWest(){
+        wumpusLogic= new WumpusLogic(LoadFrom.file);
+        wumpusLogic.getHero().setArrowCount(1);
+
+        wumpusLogic.getHero().setDirection(Direction.West);
+        int row=0;
+        char column='A';
+        for(int i=0; i< wumpusLogic.field.size(); i++) {
+            if(wumpusLogic.field.get(i).getShortCut()=='U'){
+                row =  wumpusLogic.field.get(i).getRow();
+                column = wumpusLogic.field.get(i).getColumn();
+                break;
+            }
+        }
+        wumpusLogic.getHero().setColumn((char) ((int)column+1));
+        wumpusLogic.getHero().setRow(row);
+        Assertions.assertEquals(true, wumpusLogic.shootWithArrow());
+    }
+
+    @Test
+    void testShootWithArrowShouldKillTheWumpusWhenIAmShootingAtThatDirectionNorth(){
+        wumpusLogic= new WumpusLogic(LoadFrom.file);
+        wumpusLogic.getHero().setArrowCount(1);
+
+        wumpusLogic.getHero().setDirection(Direction.North);
+        int row=0;
+        char column='A';
+        for(int i=0; i< wumpusLogic.field.size(); i++) {
+            if(wumpusLogic.field.get(i).getShortCut()=='U'){
+                row =  wumpusLogic.field.get(i).getRow();
+                column = wumpusLogic.field.get(i).getColumn();
+                break;
+            }
+        }
+        wumpusLogic.getHero().setColumn(column);
+        wumpusLogic.getHero().setRow(row+1);
+        Assertions.assertEquals(true, wumpusLogic.shootWithArrow());
+    }
 
     @Test
     void testGoStraightAheadShouldNotifyWhenIAmASpecialPlaceWhereIsAGold() {

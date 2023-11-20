@@ -1,0 +1,467 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1250"> 
+  <title>Coverage Report > WumpusLogic</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">hu.nye.progtech.gamelogic</a>
+</div>
+
+<h1>Coverage Summary for Class: WumpusLogic (hu.nye.progtech.gamelogic)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">WumpusLogic</td>
+<td class="coverageStat">
+  <span class="percent">
+    81,8%
+  </span>
+  <span class="absValue">
+    (9/11)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    71,1%
+  </span>
+  <span class="absValue">
+    (81/114)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    83,4%
+  </span>
+  <span class="absValue">
+    (131/157)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">WumpusLogic$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/2)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    83,3%
+  </span>
+  <span class="absValue">
+    (10/12)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    71,1%
+  </span>
+  <span class="absValue">
+    (81/114)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    83,6%
+  </span>
+  <span class="absValue">
+    (133/159)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package hu.nye.progtech.gamelogic;
+&nbsp;
+&nbsp;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;
+&nbsp;import hu.nye.progtech.models.FieldObject;
+&nbsp;import hu.nye.progtech.models.Hero;
+&nbsp;
+&nbsp;/**
+&nbsp; * Let&#39;s call this as the first sentence,
+&nbsp; * here the second one.
+&nbsp; */
+&nbsp;public class WumpusLogic {
+<b class="fc">&nbsp;    List&lt;FieldObject&gt; field = new ArrayList&lt;&gt;();</b>
+<b class="fc">&nbsp;    Hero hero = new Hero();</b>
+&nbsp;
+<b class="fc">&nbsp;    int stepCounter = 0;</b>
+&nbsp;
+&nbsp;    public int getStepCounter() {
+<b class="fc">&nbsp;        return stepCounter;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    FieldObject startFieldOfTheHero;
+&nbsp;
+<b class="fc">&nbsp;    boolean gameOver = false;</b>
+<b class="fc">&nbsp;    boolean win = false;</b>
+&nbsp;
+&nbsp;    public boolean isWin() {
+<b class="nc">&nbsp;        return win;</b>
+&nbsp;    }
+&nbsp;
+<b class="fc">&nbsp;    int matrixLength = 0;</b>
+&nbsp;
+&nbsp;    public boolean isGameOver() {
+<b class="nc">&nbsp;        return gameOver;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setGameOver(boolean gameOver) {
+<b class="fc">&nbsp;        this.gameOver = gameOver;</b>
+<b class="fc">&nbsp;    }</b>
+&nbsp;
+<b class="fc">&nbsp;    public WumpusLogic(LoadFrom loadFrom) {</b>
+<b class="pc">&nbsp;        switch (loadFrom) {</b>
+&nbsp;            case file:
+<b class="fc">&nbsp;                FieldLoader loader = new FieldLoader();</b>
+<b class="fc">&nbsp;                hero = loader.getHero();</b>
+<b class="fc">&nbsp;                startFieldOfTheHero = new FieldObject(</b>
+<b class="fc">&nbsp;                        hero.getShortCut(),</b>
+<b class="fc">&nbsp;                        hero.getColumn(),</b>
+<b class="fc">&nbsp;                        hero.getRow()</b>
+&nbsp;                ); // beállítjuk a kezdeti értéket, mert ez lesz a cél
+<b class="fc">&nbsp;                field = loader.getField();</b>
+<b class="fc">&nbsp;                matrixLength = loader.getMatrixLength();</b>
+<b class="fc">&nbsp;                break;</b>
+&nbsp;            default:
+&nbsp;                break;
+&nbsp;        }
+<b class="fc">&nbsp;    }</b>
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Let&#39;s call this as the first sentence,
+&nbsp;     * here the second one.
+&nbsp;     */
+&nbsp;    public Hero getHero() {
+<b class="fc">&nbsp;        return this.hero;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Let&#39;s call this as the first sentence,
+&nbsp;     * here the second one.
+&nbsp;     */
+&nbsp;    public boolean takeTheGold() {
+<b class="fc">&nbsp;        FieldObject currentPlace = field.stream()</b>
+<b class="fc">&nbsp;                .filter(field -&gt; field.getRow() == hero.getRow() &amp;&amp; field.getColumn() == hero.getColumn()).toList().get(0);</b>
+<b class="fc">&nbsp;        if (currentPlace.getShortCut() == &#39;G&#39;) {</b>
+<b class="fc">&nbsp;            currentPlace.setShortCut(&#39;_&#39;);</b>
+<b class="fc">&nbsp;            hero.setThereIsGold(true);</b>
+<b class="fc">&nbsp;            return true;</b>
+&nbsp;        } else {
+<b class="fc">&nbsp;            return false;</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Let&#39;s call this as the first sentence,
+&nbsp;     * here the second one. // minden lépésnél ellenrzöm
+&nbsp;     */
+&nbsp;    private void winStateChecker() {
+<b class="pc">&nbsp;        if (hero.hasGold() &amp;&amp; hero.getColumn() == startFieldOfTheHero.getColumn() &amp;&amp; hero.getRow() == startFieldOfTheHero.getRow()) {</b>
+&nbsp;            // nyertem
+<b class="fc">&nbsp;            win = true;</b>
+&nbsp;        }
+<b class="fc">&nbsp;    }</b>
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Let&#39;s call this as the first sentence,
+&nbsp;     * here the second one.
+&nbsp;     */
+&nbsp;    public String goStraightAhead() {
+<b class="fc">&nbsp;       String message = &quot;Csak így tovább!&quot;;</b>
+<b class="fc">&nbsp;       switch (hero.getDirection()) {</b>
+&nbsp;            case East -&gt; {
+<b class="fc">&nbsp;                FieldObject nextPlace = field.stream()</b>
+<b class="fc">&nbsp;                        .filter(field -&gt; field.getRow() == hero.getRow() &amp;&amp; field.getColumn() == hero.getColumn() + 1).toList().get(0);</b>
+<b class="pc">&nbsp;               if (nextPlace.getShortCut() != &#39;W&#39;) {</b>
+<b class="fc">&nbsp;                    hero.setRow(nextPlace.getRow());</b>
+<b class="fc">&nbsp;                    hero.setColumn(nextPlace.getColumn());</b>
+<b class="pc">&nbsp;                    if (nextPlace.getShortCut() == &#39;U&#39;) {</b>
+<b class="nc">&nbsp;                        setGameOver(true); // a wumpus megölt</b>
+<b class="nc">&nbsp;                        message = &quot;A wumpus megölt!&quot;;</b>
+&nbsp;                    }
+<b class="fc">&nbsp;                    if (nextPlace.getShortCut() == &#39;G&#39;) {</b>
+<b class="fc">&nbsp;                        message = &quot;Jé! Itt van egy arany! Vedd fel!&quot;;</b>
+&nbsp;                    }
+<b class="fc">&nbsp;                    if (nextPlace.getShortCut() == &#39;P&#39;) {</b>
+<b class="pc">&nbsp;                        if (hero.getArrowCount() == 1) {</b>
+<b class="fc">&nbsp;                            message = &quot;Elvesztettél a veremben egy nyilat!&quot;;</b>
+&nbsp;                        }
+<b class="fc">&nbsp;                        hero.lostAnArrow();</b>
+&nbsp;                    }
+<b class="fc">&nbsp;                    stepCounter++;</b>
+&nbsp;                } else {
+<b class="nc">&nbsp;                   message = &quot;Fal van előtted!&quot;;</b>
+&nbsp;               }
+<b class="fc">&nbsp;            }</b>
+&nbsp;           case South -&gt; {
+<b class="fc">&nbsp;               FieldObject nextPlace = field.stream()</b>
+<b class="fc">&nbsp;                       .filter(field -&gt; field.getRow() == hero.getRow() + 1 &amp;&amp; field.getColumn() == hero.getColumn()).toList().get(0);</b>
+<b class="pc">&nbsp;               if (nextPlace.getShortCut() != &#39;W&#39;) {</b>
+<b class="fc">&nbsp;                   hero.setRow(nextPlace.getRow());</b>
+<b class="fc">&nbsp;                   hero.setColumn(nextPlace.getColumn());</b>
+<b class="pc">&nbsp;                   if (nextPlace.getShortCut() == &#39;U&#39;) {</b>
+<b class="nc">&nbsp;                       setGameOver(true); // a wumpus megölt</b>
+<b class="nc">&nbsp;                       message = &quot;A wumpus megölt!&quot;;</b>
+&nbsp;                   }
+<b class="fc">&nbsp;                   if (nextPlace.getShortCut() == &#39;G&#39;) {</b>
+<b class="fc">&nbsp;                       message = &quot;Jé! Itt van egy arany! Vedd fel!&quot;;</b>
+&nbsp;                   }
+<b class="pc">&nbsp;                   if (nextPlace.getShortCut() == &#39;P&#39;) {</b>
+<b class="nc">&nbsp;                       if (hero.getArrowCount() == 1) {</b>
+<b class="nc">&nbsp;                           message = &quot;Elvesztettél a veremben egy nyilat!&quot;;</b>
+&nbsp;                       }
+<b class="nc">&nbsp;                       hero.lostAnArrow();</b>
+&nbsp;
+&nbsp;                   }
+<b class="fc">&nbsp;                   stepCounter++;</b>
+&nbsp;               } else {
+<b class="nc">&nbsp;                   message = &quot;Fal van előtted!&quot;;</b>
+&nbsp;               }
+<b class="fc">&nbsp;           }</b>
+&nbsp;           case North -&gt; {
+<b class="fc">&nbsp;               FieldObject nextPlace = field.stream()</b>
+<b class="fc">&nbsp;                       .filter(field -&gt; field.getRow() == hero.getRow() - 1 &amp;&amp; field.getColumn() == hero.getColumn()).toList().get(0);</b>
+<b class="pc">&nbsp;               if (nextPlace.getShortCut() != &#39;W&#39;) {</b>
+<b class="fc">&nbsp;                   hero.setRow(nextPlace.getRow());</b>
+<b class="fc">&nbsp;                   hero.setColumn(nextPlace.getColumn());</b>
+<b class="pc">&nbsp;                   if (nextPlace.getShortCut() == &#39;U&#39;) {</b>
+<b class="nc">&nbsp;                       setGameOver(true); // a wumpus megölt</b>
+<b class="nc">&nbsp;                       message = &quot;A wumpus megölt!&quot;;</b>
+&nbsp;                   }
+<b class="pc">&nbsp;                   if (nextPlace.getShortCut() == &#39;G&#39;) {</b>
+<b class="nc">&nbsp;                       message = &quot;Jé! Itt van egy arany! Vedd fel!&quot;;</b>
+&nbsp;                   }
+<b class="pc">&nbsp;                   if (nextPlace.getShortCut() == &#39;P&#39;) {</b>
+<b class="nc">&nbsp;                       if (hero.getArrowCount() == 1) {</b>
+<b class="nc">&nbsp;                           message = &quot;Elvesztettél a veremben egy nyilat!&quot;;</b>
+&nbsp;                       }
+<b class="nc">&nbsp;                       hero.lostAnArrow();</b>
+&nbsp;
+&nbsp;                   }
+<b class="fc">&nbsp;                    stepCounter++;</b>
+&nbsp;               } else {
+<b class="nc">&nbsp;                   message = &quot;Fal van előtted!&quot;;</b>
+&nbsp;               }
+<b class="fc">&nbsp;           }</b>
+&nbsp;           default -&gt; {
+<b class="fc">&nbsp;               FieldObject nextPlace = field.stream()</b>
+<b class="fc">&nbsp;                       .filter(field -&gt; field.getRow() == hero.getRow() &amp;&amp; field.getColumn() == hero.getColumn() - 1).toList().get(0);</b>
+<b class="pc">&nbsp;               if (nextPlace.getShortCut() != &#39;W&#39;) {</b>
+<b class="fc">&nbsp;                   hero.setRow(nextPlace.getRow());</b>
+<b class="fc">&nbsp;                   hero.setColumn(nextPlace.getColumn());</b>
+<b class="pc">&nbsp;                   if (nextPlace.getShortCut() == &#39;U&#39;) {</b>
+<b class="fc">&nbsp;                       setGameOver(true); // a wumpus megölt</b>
+<b class="fc">&nbsp;                       message = &quot;A wumpus megölt!&quot;;</b>
+&nbsp;                   }
+<b class="pc">&nbsp;                   if (nextPlace.getShortCut() == &#39;G&#39;) {</b>
+<b class="nc">&nbsp;                       message = &quot;Jé! Itt van egy arany! Vedd fel!&quot;;</b>
+&nbsp;                   }
+<b class="pc">&nbsp;                   if (nextPlace.getShortCut() == &#39;P&#39;) {</b>
+<b class="nc">&nbsp;                       if (hero.getArrowCount() == 1) {</b>
+<b class="nc">&nbsp;                           message = &quot;Elvesztettél a veremben egy nyilat!&quot;;</b>
+&nbsp;                       }
+<b class="nc">&nbsp;                       hero.lostAnArrow();</b>
+&nbsp;
+&nbsp;                   }
+<b class="fc">&nbsp;                   stepCounter++;</b>
+&nbsp;               } else {
+<b class="nc">&nbsp;                   message = &quot;Fal van előtted!&quot;;</b>
+&nbsp;               }
+&nbsp;           }
+&nbsp;        }
+<b class="fc">&nbsp;        winStateChecker();</b>
+<b class="fc">&nbsp;        return message;</b>
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Let&#39;s call this as the first sentence,
+&nbsp;     * here the second one.
+&nbsp;     */
+&nbsp;    public boolean shootWithArrow() {
+<b class="fc">&nbsp;        switch (hero.getDirection()) {</b>
+&nbsp;            case East -&gt; {
+<b class="fc">&nbsp;                List&lt;FieldObject&gt; filteredList = field.stream()</b>
+<b class="fc">&nbsp;                        .filter(field -&gt; field.getRow() == hero.getRow()).toList();</b>
+<b class="fc">&nbsp;                boolean heKilledTheWumpus = false;</b>
+&nbsp;                // itt lesz gond az átlváltással 64-&gt;
+<b class="pc">&nbsp;                for (int i = hero.getColumn() - 65; i &lt; matrixLength; i++) {</b>
+<b class="fc">&nbsp;                    if (filteredList.get(i).getShortCut() != &#39;W&#39;) {</b>
+<b class="pc">&nbsp;                        if (filteredList.get(i).getShortCut() == &#39;U&#39;) {</b>
+&nbsp;                            //találta a nyil
+<b class="nc">&nbsp;                            heKilledTheWumpus = true;</b>
+<b class="nc">&nbsp;                            removeWumpusFromTheField();</b>
+<b class="nc">&nbsp;                            break;</b>
+&nbsp;                        }
+&nbsp;                    } else {
+&nbsp;                        break;
+&nbsp;                    }
+&nbsp;
+&nbsp;                }
+<b class="fc">&nbsp;                hero.lostAnArrow();</b>
+&nbsp;                // ha true, akkor megöltem a wumpuszt, ha false,
+&nbsp;                // akkor falnak ütközött a lövedékem, vagy nem volt nyilam
+<b class="fc">&nbsp;                return heKilledTheWumpus;</b>
+&nbsp;            }
+&nbsp;            case South -&gt; {
+<b class="fc">&nbsp;                boolean heKilledTheWumpus = false;</b>
+<b class="fc">&nbsp;                List&lt;FieldObject&gt; filteredList = field.stream()</b>
+<b class="fc">&nbsp;                        .filter(field -&gt; field.getColumn() == hero.getColumn()).toList(); //azért mert vertikálisan haladok</b>
+&nbsp;                // kinyertem az oszlop azon sorait amiben a hős van
+<b class="pc">&nbsp;                for (int i = hero.getRow(); i &lt; matrixLength; i++) {</b>
+<b class="fc">&nbsp;                    System.out.println(filteredList.get(i).getShortCut());</b>
+<b class="pc">&nbsp;                    if (filteredList.get(i).getShortCut() != &#39;W&#39;) {</b>
+<b class="pc">&nbsp;                        if (filteredList.get(i).getShortCut() == &#39;U&#39;) {</b>
+&nbsp;                            //találta a nyil
+<b class="fc">&nbsp;                            heKilledTheWumpus = true;</b>
+<b class="fc">&nbsp;                            removeWumpusFromTheField();</b>
+<b class="fc">&nbsp;                            break;</b>
+&nbsp;                        }
+&nbsp;                    } else {
+&nbsp;                        break;
+&nbsp;                    }
+&nbsp;                }
+<b class="fc">&nbsp;                hero.lostAnArrow();</b>
+<b class="fc">&nbsp;                return heKilledTheWumpus;</b>
+&nbsp;            }
+&nbsp;            case West -&gt; {
+<b class="fc">&nbsp;                List&lt;FieldObject&gt; filteredList = field.stream()</b>
+<b class="fc">&nbsp;                        .filter(field -&gt; field.getRow() == hero.getRow()).toList();</b>
+<b class="fc">&nbsp;                boolean heKilledTheWumpus = false;</b>
+&nbsp;                // itt lesz gond az átlváltással 64-&gt;0, azért nagyobb min 0,
+&nbsp;                // mert a falat felesleges vizsgálni
+<b class="pc">&nbsp;                for (int i = hero.getColumn() - 65; i &gt; 0; i--) {</b>
+<b class="fc">&nbsp;                    System.out.println(filteredList.get(i).getShortCut());</b>
+<b class="pc">&nbsp;                    if (filteredList.get(i).getShortCut() != &#39;W&#39;) {</b>
+<b class="fc">&nbsp;                        if (filteredList.get(i).getShortCut() == &#39;U&#39;) {</b>
+&nbsp;                            //találta a nyil
+<b class="fc">&nbsp;                            heKilledTheWumpus = true;</b>
+<b class="fc">&nbsp;                            removeWumpusFromTheField();</b>
+<b class="fc">&nbsp;                            break;</b>
+&nbsp;                        }
+&nbsp;                    } else {
+&nbsp;                        break;
+&nbsp;                    }
+&nbsp;                }
+<b class="fc">&nbsp;                hero.lostAnArrow();</b>
+&nbsp;                // ha true, akkor megöltem a wumpuszt, ha false,
+&nbsp;                // akkor falnak ütközött a lövedékem, vagy nem volt nyilam
+<b class="fc">&nbsp;                return heKilledTheWumpus;</b>
+&nbsp;            }
+&nbsp;            default -&gt; {
+<b class="fc">&nbsp;                boolean heKilledTheWumpus = false;</b>
+<b class="fc">&nbsp;                List&lt;FieldObject&gt; filteredList = field.stream()</b>
+<b class="fc">&nbsp;                        .filter(field -&gt; field.getColumn() == hero.getColumn()).toList(); //azért mert vertikálisan haladok</b>
+<b class="pc">&nbsp;                for (int i = hero.getRow() - 1; i &gt; 0; i--) {</b>
+<b class="pc">&nbsp;                    if (filteredList.get(i).getShortCut() != &#39;W&#39;) {</b>
+<b class="fc">&nbsp;                        if (filteredList.get(i).getShortCut() == &#39;U&#39;) {</b>
+&nbsp;                            //találta a nyil
+<b class="fc">&nbsp;                            heKilledTheWumpus = true;</b>
+<b class="fc">&nbsp;                            removeWumpusFromTheField();</b>
+<b class="fc">&nbsp;                            break;</b>
+&nbsp;                        }
+&nbsp;                    } else {
+&nbsp;                        break;
+&nbsp;                    }
+&nbsp;                }
+<b class="fc">&nbsp;                hero.lostAnArrow();</b>
+<b class="fc">&nbsp;                return heKilledTheWumpus;</b>
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    private void removeWumpusFromTheField() {
+<b class="pc">&nbsp;        for (int i = 0; i &lt; field.size(); i++) {</b>
+<b class="fc">&nbsp;            if (field.get(i).getShortCut() == &#39;U&#39;) {</b>
+<b class="fc">&nbsp;                field.get(i).setShortCut(&#39;_&#39;);</b>
+<b class="fc">&nbsp;                break;</b>
+&nbsp;            }
+&nbsp;        }
+<b class="fc">&nbsp;    }</b>
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-20 19:37</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,193 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1250"> 
+  <title>Coverage Report > Wumpus</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">hu.nye.progtech.views</a>
+</div>
+
+<h1>Coverage Summary for Class: Wumpus (hu.nye.progtech.views)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Wumpus</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/33)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package hu.nye.progtech.views;
+&nbsp;
+&nbsp;import java.util.Scanner;
+&nbsp;
+&nbsp;import hu.nye.progtech.gamelogic.FieldDrawer;
+&nbsp;import hu.nye.progtech.gamelogic.LoadFrom;
+&nbsp;import hu.nye.progtech.gamelogic.WumpusLogic;
+&nbsp;import hu.nye.progtech.models.ConsoleColor;
+&nbsp;import hu.nye.progtech.models.MenuCallback;
+&nbsp;
+&nbsp;
+&nbsp;/**
+&nbsp; * Let&#39;s call this as the first sentence,
+&nbsp; * here the second one.
+&nbsp; */
+<b class="nc">&nbsp;public class Wumpus {</b>
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;    public static boolean viewLoop = true;</b>
+<b class="nc">&nbsp;    static int viewMenu = -1;</b>
+&nbsp;
+<b class="nc">&nbsp;   public static WumpusLogic gameLogic = new WumpusLogic(LoadFrom.file);</b>
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Let&#39;s call this as the first sentence,
+&nbsp;     * here the second one.
+&nbsp;     */
+&nbsp;    public static void show(String name, MenuCallback callback) {
+&nbsp;
+<b class="nc">&nbsp;        viewLoop = true;</b>
+<b class="nc">&nbsp;        while (viewLoop) {</b>
+<b class="nc">&nbsp;            System.out.println(ConsoleColor.BLUE + &quot;-----------------Wumpus--------------------&quot; + ConsoleColor.RESET);</b>
+&nbsp;            // kezdő pálya betöltése
+<b class="nc">&nbsp;            FieldDrawer.draw(gameLogic);</b>
+&nbsp;
+&nbsp;            // hős adatai
+<b class="nc">&nbsp;            gameLogic.getHero().setName(name);</b>
+<b class="nc">&nbsp;            System.out.println(&quot;Hős adatai:&quot;);</b>
+<b class="nc">&nbsp;            System.out.println(&quot;neve: &quot; + ConsoleColor.GREEN + gameLogic.getHero().getName() + ConsoleColor.RESET);</b>
+<b class="nc">&nbsp;            String extend = &quot;,&quot; + gameLogic.getHero().getRow() + ConsoleColor.RESET;</b>
+<b class="nc">&nbsp;            System.out.println(&quot;pozíciója: &quot; + ConsoleColor.GREEN + gameLogic.getHero().getColumn() + extend);</b>
+<b class="nc">&nbsp;            System.out.println(&quot;iránya: &quot; + ConsoleColor.GREEN + gameLogic.getHero().getDirectionAsCharacter() + ConsoleColor.RESET);</b>
+<b class="nc">&nbsp;            System.out.println(&quot;arany: &quot; + ConsoleColor.GREEN + gameLogic.getHero().hasGold() + ConsoleColor.RESET);</b>
+<b class="nc">&nbsp;            System.out.println(&quot;nyilak száma: &quot; + ConsoleColor.GREEN + gameLogic.getHero().getArrowCount() + ConsoleColor.RESET);</b>
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;            System.out.println(ConsoleColor.GREEN + &quot;1. &quot; + ConsoleColor.RESET + &quot;Játék mentése&quot;);</b>
+<b class="nc">&nbsp;            System.out.println(ConsoleColor.GREEN + &quot;2. &quot; + ConsoleColor.RESET + &quot;Játék feladása (kilépés)&quot;);</b>
+<b class="nc">&nbsp;            System.out.println(ConsoleColor.GREEN + &quot;3. &quot; + ConsoleColor.RESET + &quot;Lépés&quot;);</b>
+<b class="nc">&nbsp;            System.out.println(ConsoleColor.GREEN + &quot;4. &quot; + ConsoleColor.RESET + &quot;Lövés&quot;);</b>
+<b class="nc">&nbsp;            System.out.println(ConsoleColor.GREEN + &quot;5. &quot; + ConsoleColor.RESET + &quot;Balra fordulás&quot;);</b>
+<b class="nc">&nbsp;            System.out.println(ConsoleColor.GREEN + &quot;6. &quot; + ConsoleColor.RESET + &quot;Jobbra fordulás&quot;);</b>
+<b class="nc">&nbsp;            System.out.println(ConsoleColor.GREEN + &quot;7. &quot; + ConsoleColor.RESET + &quot;Arany felvétele&quot;);</b>
+<b class="nc">&nbsp;            System.out.print(&quot;menü: &quot;);</b>
+&nbsp;
+<b class="nc">&nbsp;            Scanner scanner = new Scanner(System.in);</b>
+<b class="nc">&nbsp;            if (scanner.hasNextInt()) {</b>
+<b class="nc">&nbsp;                viewMenu = scanner.nextInt();</b>
+&nbsp;            }
+&nbsp;
+<b class="nc">&nbsp;            callback.call(viewMenu);</b>
+<b class="nc">&nbsp;        }</b>
+<b class="nc">&nbsp;    }</b>
+&nbsp;
+&nbsp;    public static boolean isWin() {
+<b class="nc">&nbsp;        return gameLogic.isWin();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public static boolean isGameOver() {
+<b class="nc">&nbsp;        return gameLogic.isGameOver();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public static boolean close() {
+<b class="nc">&nbsp;        return viewLoop = false;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-20 19:37</div>
+</div>
+</body>
+</html>

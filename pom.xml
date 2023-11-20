@@ -89,7 +89,8 @@
                         <exclude>hu/nye/progtech/models/*</exclude>
                         <exclude>hu/nye/progtech/views/*</exclude>
                         <exclude>hu/nye/progtech/gamelogic/LoadFrom.*</exclude>
-                        <exclude>hu/nye/progtech/gamelogic/FileLoader.*</exclude>
+                        <exclude>hu/nye/progtech/gamelogic/FieldLoader.*</exclude>
+                        <exclude>hu/nye/progtech/gamelogic/FieldDrawer.*</exclude>
                         <exclude>hu/nye/progtech/data/*</exclude>
                     </excludes>
                 </configuration>
@@ -180,7 +181,6 @@
                     <configLocation>checkstyle.xml</configLocation>
                     <encoding>UTF-8</encoding>
                     <consoleOutput>true</consoleOutput>
-                    <failOnError>false</failOnError>
                     <linkXRef>false</linkXRef>
                 </configuration>
                 <reportSets>

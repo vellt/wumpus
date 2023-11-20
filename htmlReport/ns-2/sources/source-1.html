@@ -1,0 +1,192 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1250"> 
+  <title>Coverage Report > FieldDrawer</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">hu.nye.progtech.gamelogic</a>
+</div>
+
+<h1>Coverage Summary for Class: FieldDrawer (hu.nye.progtech.gamelogic)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">FieldDrawer</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/20)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/29)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package hu.nye.progtech.gamelogic;
+&nbsp;
+&nbsp;import java.util.Comparator;
+&nbsp;import java.util.stream.IntStream;
+&nbsp;
+&nbsp;import hu.nye.progtech.models.ConsoleColor;
+&nbsp;import hu.nye.progtech.models.FieldObject;
+&nbsp;import hu.nye.progtech.models.Hero;
+&nbsp;
+&nbsp;/**
+&nbsp; * Let&#39;s call this as the first sentence,
+&nbsp; * here the second one.
+&nbsp; */
+<b class="nc">&nbsp;public class FieldDrawer {</b>
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Let&#39;s call this as the first sentence,
+&nbsp;     * here the second one.
+&nbsp;     */
+&nbsp;    private static boolean conditionForColoring(FieldObject fieldElement, Hero hero) {
+<b class="nc">&nbsp;        return fieldElement.getColumn() == hero.getColumn() &amp;&amp; fieldElement.getRow() == hero.getRow();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Let&#39;s call this as the first sentence,
+&nbsp;     * here the second one.
+&nbsp;     */
+&nbsp;    public static void draw(WumpusLogic wumpusLogic) {
+&nbsp;
+<b class="nc">&nbsp;        wumpusLogic.field.sort(Comparator</b>
+<b class="nc">&nbsp;                .comparing(FieldObject::getRow)</b>
+<b class="nc">&nbsp;                .thenComparing(FieldObject::getColumn));</b>
+<b class="nc">&nbsp;        IntStream.range(0, wumpusLogic.matrixLength + 1).forEach(column -&gt; {</b>
+<b class="nc">&nbsp;            if ((column == 0)) {</b>
+<b class="nc">&nbsp;                System.out.printf(&quot;%c\t&quot;, &#39; &#39;);</b>
+&nbsp;            } else {
+<b class="nc">&nbsp;                System.out.printf(&quot;%3c&quot;, (char) column + 64);</b>
+&nbsp;            }
+&nbsp;
+<b class="nc">&nbsp;        });</b>
+<b class="nc">&nbsp;        System.out.print(&quot;\n\n&quot;);</b>
+<b class="nc">&nbsp;        wumpusLogic.field.forEach((fieldElement) -&gt; {</b>
+<b class="nc">&nbsp;            if (fieldElement.getColumn() - 64 == wumpusLogic.matrixLength) {</b>
+<b class="nc">&nbsp;                if (fieldElement.getColumn() - 64 == 0) {</b>
+<b class="nc">&nbsp;                    if (conditionForColoring(fieldElement, wumpusLogic.hero)) {</b>
+<b class="nc">&nbsp;                        System.out.printf(ConsoleColor.ANSI_GREEN_BACKGROUND + &quot;%3s\n&quot; + ConsoleColor.RESET, fieldElement.getShortCut());</b>
+&nbsp;                    } else {
+<b class="nc">&nbsp;                        System.out.printf(&quot;%3s\n&quot;, fieldElement.getShortCut());</b>
+&nbsp;                    }
+&nbsp;                } else {
+<b class="nc">&nbsp;                    if (conditionForColoring(fieldElement, wumpusLogic.hero)) {</b>
+<b class="nc">&nbsp;                        System.out.printf(ConsoleColor.ANSI_GREEN_BACKGROUND + &quot;%3s\n&quot; + ConsoleColor.RESET, fieldElement.getShortCut());</b>
+&nbsp;                    } else {
+<b class="nc">&nbsp;                        System.out.printf(&quot;%3s\n&quot;, fieldElement.getShortCut());</b>
+&nbsp;                    }
+&nbsp;                }
+&nbsp;
+&nbsp;            } else {
+<b class="nc">&nbsp;                if (fieldElement.getColumn() == &#39;A&#39;) {</b>
+<b class="nc">&nbsp;                    if (conditionForColoring(fieldElement, wumpusLogic.hero)) {</b>
+<b class="nc">&nbsp;                        System.out.printf(ConsoleColor.ANSI_GREEN_BACKGROUND + &quot;%d\t&quot; + ConsoleColor.RESET, fieldElement.getRow());</b>
+&nbsp;                    } else {
+<b class="nc">&nbsp;                        System.out.printf(&quot;%d\t&quot;, fieldElement.getRow());</b>
+&nbsp;                    }
+&nbsp;
+&nbsp;                }
+<b class="nc">&nbsp;                if (conditionForColoring(fieldElement, wumpusLogic.hero)) {</b>
+<b class="nc">&nbsp;                    System.out.printf(ConsoleColor.ANSI_GREEN_BACKGROUND + &quot;%3s&quot; + ConsoleColor.RESET, fieldElement.getShortCut());</b>
+&nbsp;                } else {
+<b class="nc">&nbsp;                    System.out.printf(&quot;%3s&quot;, fieldElement.getShortCut());</b>
+&nbsp;                }
+&nbsp;
+&nbsp;            }
+<b class="nc">&nbsp;        });</b>
+<b class="nc">&nbsp;    }</b>
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-20 19:37</div>
+</div>
+</body>
+</html>
