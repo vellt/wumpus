@@ -43,7 +43,7 @@ public class WumpusLogic {
     public WumpusLogic(LoadFrom loadFrom, String name) {
         switch (loadFrom) {
             case file:
-                FieldLoader loader = new FieldLoader();
+                FileLoader loader = new FileLoader();
                 hero = loader.getHero();
                 hero.setName(name);
                 startFieldOfTheHero = new FieldObject(

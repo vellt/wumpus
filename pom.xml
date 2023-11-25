@@ -14,44 +14,40 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <!-- függőségek -->
     <dependencies>
+        <!-- logoláshoz -->
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
-            <version>1.2.6</version>
+            <version>1.2.9</version>
         </dependency>
+        <!-- unit teszthez -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
             <version>5.8.1</version>
             <scope>test</scope>
         </dependency>
+        <!-- unit teszthez -->
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-junit-jupiter</artifactId>
             <version>3.12.4</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-core</artifactId>
-            <version>4.1.0</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-params</artifactId>
-            <version>5.8.1</version>
-            <scope>test</scope>
-        </dependency>
     </dependencies>
 
     <build>
+        <!-- központilag elérhető, beépülő modulok -->
         <plugins>
+            <!-- Az assembly fogja és az összes függőséget egy jar fájlba bele gyúrja -->
             <plugin>
+                <!-- egy plugint, vagy bármilyen függőséget, úgy a mi projektünket os ez a 3 tag azonosít -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <version>3.3.0</version>
+                <!-- kiegészítő beállítások -->
                 <executions>
                     <execution>
                         <phase>package</phase>
@@ -71,14 +67,21 @@
                             </descriptorRefs>
                         </configuration>
                     </execution>
-
                 </executions>
             </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M5</version>
             </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>3.9.1</version>
+            </plugin>
+
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
@@ -90,6 +93,7 @@
                         <exclude>hu/nye/progtech/views/*</exclude>
                         <exclude>hu/nye/progtech/gamelogic/LoadFrom.*</exclude>
                         <exclude>hu/nye/progtech/gamelogic/FieldDrawer.*</exclude>
+                        <exclude>hu/nye/progtech/gamelogic/DatabaseLoader.*</exclude>
                         <exclude>hu/nye/progtech/data/*</exclude>
                     </excludes>
                 </configuration>
@@ -128,15 +132,9 @@
                     </execution>
                 </executions>
             </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-site-plugin</artifactId>
-                <version>3.9.1</version>
-            </plugin>
-            <plugin>
-
-
-                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
                 <version>3.1.2</version>
                 <configuration>
@@ -145,16 +143,13 @@
                     <consoleOutput>true</consoleOutput>
                     <failsOnError>true</failsOnError>
                     <linkXRef>false</linkXRef>
-
                 </configuration>
                 <dependencies>
-
                     <dependency>
                         <groupId>com.puppycrawl.tools</groupId>
                         <artifactId>checkstyle</artifactId>
                         <version>9.0.1</version>
                     </dependency>
-
                 </dependencies>
                 <executions>
                     <execution>
@@ -166,10 +161,16 @@
                     </execution>
                 </executions>
             </plugin>
+
         </plugins>
     </build>
 
+    <!--
+    reporting fázis, azután jön, mikor sikeresen lefutott a build vagy sikertelenül akár
+    akkor ebből csinál reportot, hogy lássuk mi történt. HTML, XML-ekben is akár összegezheti ezen hibákat
 
+    ebben + a build fázisban használhatunk pluginokat
+    -->
     <reporting>
         <plugins>
             <plugin>

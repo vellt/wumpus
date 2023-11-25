@@ -15,7 +15,7 @@ import hu.nye.progtech.models.Hero;
  * Let's call this as the first sentence,
  * here the second one.
  */
-public class FieldLoader {
+public class FileLoader {
 
 
     public Hero getHero() {
@@ -35,7 +35,7 @@ public class FieldLoader {
     List<FieldObject> fields = new ArrayList<>();
     int matrixLength = 0;
 
-    public FieldLoader() {
+    public FileLoader() {
         Path projectDirectory = Paths.get(System.getProperty("user.dir"));
         Path relativePath = Paths.get("src", "main", "java", "hu", "nye", "progtech", "data", "wumpuszinput.txt");
         Path fullPath = projectDirectory.resolve(relativePath);
