@@ -16,6 +16,13 @@
 
     <!-- függőségek -->
     <dependencies>
+        <!-- h2 adatnázis -->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>2.2.224</version>
+            <scope>runtime</scope>
+        </dependency>
         <!-- logoláshoz -->
         <dependency>
             <groupId>ch.qos.logback</groupId>
@@ -41,7 +48,9 @@
     <build>
         <!-- központilag elérhető, beépülő modulok -->
         <plugins>
-            <!-- Az assembly fogja és az összes függőséget egy jar fájlba bele gyúrja -->
+            <!-- Az assembly fogja és az összes függőséget egy jar fájlba bele gyúrja
+            target/wumpus-1.0.SNAPSHOT-jar-with-dependencies.jar az elérése
+            -->
             <plugin>
                 <!-- egy plugint, vagy bármilyen függőséget, úgy a mi projektünket os ez a 3 tag azonosít -->
                 <groupId>org.apache.maven.plugins</groupId>
@@ -69,7 +78,7 @@
                     </execution>
                 </executions>
             </plugin>
-
+            <!-- ez futtatja a unit teszteket -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -81,7 +90,7 @@
                 <artifactId>maven-site-plugin</artifactId>
                 <version>3.9.1</version>
             </plugin>
-
+            <!-- A teszt lefedettséget figyeli, ha nem elég magas, akkor elbuktatja a buildet -->
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
@@ -172,7 +181,22 @@
     ebben + a build fázisban használhatunk pluginokat
     -->
     <reporting>
+        <!-- forráskód ellenőrzés és a tesztekről ír riportot
+        target/site itt vannak a riportok
+        -->
         <plugins>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <reportSets>
+                    <reportSet>
+                        <reports>
+                            <report>report</report>
+                        </reports>
+                    </reportSet>
+                </reportSets>
+            </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
