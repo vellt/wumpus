@@ -45,18 +45,18 @@ Arra összpontosítanak, hogy az objektumok hogyan kommunikálnak egymással és
 ## III. Arhitektúrális minták:
 Az architektúrális minták olyan koncepciók és elrendezések, amelyek segítenek az alkalmazások meghatározott feladatkörök struktúrális kialakításában, komponensek és kapcsolatok révén. 
 
-## Az egyik ilyen kulcsfontosságú architektúrális minta a MVC (Modell-Nézet-Vezérlő).
+### Az egyik ilyen kulcsfontosságú architektúrális minta a MVC (Modell-Nézet-Vezérlő).
 Az MVC egy olyan szoftvertervezési minta, amely elválasztja az alkalmazás három alapvető részét: a Modellt (Model), a Nézetet (View) és a Vezérlőt (Controller). 
 Ez a szétválasztás lehetővé teszi, hogy a változások az egyik részben ne befolyásolják szorosan a többit, ezáltal javítva a karbantarthatóságot és a fejleszthetőséget.
 
 ![image](https://github.com/vellt/wumpus/assets/61885011/03f4726f-c0fb-4bd3-9bee-3dd0b8ec6f16)
 
-### Szerepkörök jellemzése
+#### Szerepkörök jellemzése
 -	**Modell**: A Modell reprezentálja az alkalmazás üzleti logikáját és adatmodelljét. Itt valósulnak meg az adatok kezelése és a belső műveletek.
 -	**Nézet**: A Nézet a felhasználói interfészt (UI-t) kezeli, és felelős az adatok megjelenítéséért. A Nézet információt kér a Modelltől és megjeleníti azt a felhasználónak.
 -	**Vezérlő**: A Vezérlő kapcsolatot biztosít a Modell és a Nézet között. Fogadja a felhasználói interakciókat (például gombok lenyomását), feldolgozza azokat, és irányítja a szükséges műveleteket a Modell és a Nézet felé.
 
-### Egyszerű példa: 
+#### Egyszerű példa: 
 Egy webalkalmazás esetében a Modell tartalmazhatja az adatbázis-kezelő kódot, a Nézet lehet az HTML és a CSS, a Vezérlő pedig a szerveroldali kódot, amely kapcsolódik a Modellhez és elvégzi a szükséges műveleteket.
 
 
