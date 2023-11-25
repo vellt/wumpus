@@ -242,7 +242,6 @@ public class WumpusLogic {
                         .filter(field -> field.getColumn() == hero.getColumn()).toList(); //azért mert vertikálisan haladok
                 // kinyertem az oszlop azon sorait amiben a hős van
                 for (int i = hero.getRow(); i < matrixLength; i++) {
-                    System.out.println(filteredList.get(i).getShortCut());
                     if (filteredList.get(i).getShortCut() != 'W') {
                         if (filteredList.get(i).getShortCut() == 'U') {
                             //találta a nyil
@@ -264,7 +263,6 @@ public class WumpusLogic {
                 // itt lesz gond az átlváltással 64->0, azért nagyobb min 0,
                 // mert a falat felesleges vizsgálni
                 for (int i = hero.getColumn() - 65; i > 0; i--) {
-                    System.out.println(filteredList.get(i).getShortCut());
                     if (filteredList.get(i).getShortCut() != 'W') {
                         if (filteredList.get(i).getShortCut() == 'U') {
                             //találta a nyil

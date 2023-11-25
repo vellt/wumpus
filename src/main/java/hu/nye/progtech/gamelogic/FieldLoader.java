@@ -68,8 +68,6 @@ public class FieldLoader {
                         numberOfWumpus(), //azért mert annyi nyillal kezd amennyi wumpus van
                         "unknow");
             }
-
-            // System.out.println(content);
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -62,6 +62,10 @@ public class Wumpus {
         }
     }
 
+    /**
+     * Let's call this as the first sentence,
+     * here the second one.
+     */
     public static boolean isWin() {
         if (gameLogic.isWin()) {
             FieldDrawer.draw(gameLogic);
@@ -69,10 +73,19 @@ public class Wumpus {
         return gameLogic.isWin();
     }
 
+    /**
+     * Let's call this as the first sentence,
+     * here the second one.
+     */
     public static boolean isGameOver() {
         return gameLogic.isGameOver();
     }
 
+
+    /**
+     * Let's call this as the first sentence,
+     * here the second one.
+     */
     public static boolean close() {
         return viewLoop = false;
     }
