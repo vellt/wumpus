@@ -40,11 +40,12 @@ public class WumpusLogic {
         this.gameOver = gameOver;
     }
 
-    public WumpusLogic(LoadFrom loadFrom) {
+    public WumpusLogic(LoadFrom loadFrom, String name) {
         switch (loadFrom) {
             case file:
                 FieldLoader loader = new FieldLoader();
                 hero = loader.getHero();
+                hero.setName(name);
                 startFieldOfTheHero = new FieldObject(
                         hero.getShortCut(),
                         hero.getColumn(),
@@ -54,6 +55,7 @@ public class WumpusLogic {
                 matrixLength = loader.getMatrixLength();
                 break;
             default:
+                // játék betöltése adb-ből név alapján
                 break;
         }
     }

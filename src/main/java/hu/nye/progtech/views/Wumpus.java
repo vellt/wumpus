@@ -19,14 +19,29 @@ public class Wumpus {
     public static boolean viewLoop = true;
     static int viewMenu = -1;
 
-   public static WumpusLogic gameLogic = new WumpusLogic(LoadFrom.file);
+    public static WumpusLogic gameLogic = null;
 
     /**
      * Let's call this as the first sentence,
      * here the second one.
      */
-    public static void show(String name, MenuCallback callback) {
+    public static void loadDataFromDb(String name) {
+        gameLogic = new WumpusLogic(LoadFrom.database, name);
+    }
 
+    /**
+     * Let's call this as the first sentence,
+     * here the second one.
+     */
+    public static void loadDataFromFile(String name) {
+        gameLogic = new WumpusLogic(LoadFrom.file, name);
+    }
+
+    /**
+     * Let's call this as the first sentence,
+     * here the second one.
+     */
+    public static void show(MenuCallback callback) {
         viewLoop = true;
         while (viewLoop) {
             System.out.println(ConsoleColor.BLUE + "-----------------Wumpus--------------------" + ConsoleColor.RESET);
@@ -34,7 +49,6 @@ public class Wumpus {
             FieldDrawer.draw(gameLogic);
 
             // hős adatai
-            gameLogic.getHero().setName(name);
             System.out.println("Hős adatai:");
             System.out.println("neve: " + ConsoleColor.GREEN + gameLogic.getHero().getName() + ConsoleColor.RESET);
             String extend = "," + gameLogic.getHero().getRow() + ConsoleColor.RESET;

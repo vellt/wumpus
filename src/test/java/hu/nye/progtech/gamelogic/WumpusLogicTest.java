@@ -18,7 +18,7 @@ class WumpusLogicTest {
 
     @Test
     void testGoStraightAheadShouldHerosRowDecrementWithOneValueWhenTheHerosDirectionIsNorth(){
-        wumpusLogic= new WumpusLogic(LoadFrom.file);
+        wumpusLogic= new WumpusLogic(LoadFrom.file, "test");
         wumpusLogic.getHero().setDirection(Direction.North);
         wumpusLogic.getHero().setRow(5);
         wumpusLogic.getHero().setColumn('B');
@@ -28,7 +28,7 @@ class WumpusLogicTest {
 
     @Test
     void testGoStraightAheadShouldHerosRowIncrementWithOneValueWhenTheHerosDirectionIsSouth(){
-        wumpusLogic= new WumpusLogic(LoadFrom.file);
+        wumpusLogic= new WumpusLogic(LoadFrom.file, "test");
         wumpusLogic.getHero().setDirection(Direction.South);
         wumpusLogic.getHero().setRow(4);
         wumpusLogic.getHero().setColumn('B');
@@ -38,7 +38,7 @@ class WumpusLogicTest {
 
     @Test
     void testGoStraightAheadShouldHerosColumnIncrementWithOneValueWhenTheHerosDirectionIsEast(){
-        wumpusLogic= new WumpusLogic(LoadFrom.file);
+        wumpusLogic= new WumpusLogic(LoadFrom.file, "test");
         wumpusLogic.getHero().setDirection(Direction.East);
         wumpusLogic.getHero().setRow(3);
         wumpusLogic.getHero().setColumn('B');
@@ -48,7 +48,7 @@ class WumpusLogicTest {
 
     @Test
     void testGoStraightAheadShouldHerosColumnDecrementWithOneValueWhenTheHerosDirectionIsWest(){
-        wumpusLogic= new WumpusLogic(LoadFrom.file);
+        wumpusLogic= new WumpusLogic(LoadFrom.file, "test");
         wumpusLogic.getHero().setDirection(Direction.West);
         wumpusLogic.getHero().setRow(3);
         wumpusLogic.getHero().setColumn('C');
@@ -58,7 +58,7 @@ class WumpusLogicTest {
 
     @Test
     void testShootWithArrowShouldDecrementTheHerosArrowsWhenIAmShooting(){
-        wumpusLogic= new WumpusLogic(LoadFrom.file);
+        wumpusLogic= new WumpusLogic(LoadFrom.file, "test");
         wumpusLogic.getHero().setArrowCount(1);
         wumpusLogic.shootWithArrow();
         Assertions.assertEquals(0, wumpusLogic.getHero().getArrowCount());
@@ -66,7 +66,7 @@ class WumpusLogicTest {
 
     @Test
     void testShootWithArrowShouldKillTheWumpusWhenIAmShootingAtThatDirection(){
-        wumpusLogic= new WumpusLogic(LoadFrom.file);
+        wumpusLogic= new WumpusLogic(LoadFrom.file, "test");
         wumpusLogic.getHero().setArrowCount(1);
 
         wumpusLogic.getHero().setDirection(Direction.South);
@@ -86,7 +86,7 @@ class WumpusLogicTest {
 
     @Test
     void testShootWithArrowShouldKillTheWumpusWhenIAmShootingAtThatDirectionWest(){
-        wumpusLogic= new WumpusLogic(LoadFrom.file);
+        wumpusLogic= new WumpusLogic(LoadFrom.file, "test");
         wumpusLogic.getHero().setArrowCount(1);
 
         wumpusLogic.getHero().setDirection(Direction.West);
@@ -106,7 +106,7 @@ class WumpusLogicTest {
 
     @Test
     void testShootWithArrowShouldKillTheWumpusWhenIAmShootingAtThatDirectionNorth(){
-        wumpusLogic= new WumpusLogic(LoadFrom.file);
+        wumpusLogic= new WumpusLogic(LoadFrom.file, "test");
         wumpusLogic.getHero().setArrowCount(1);
 
         wumpusLogic.getHero().setDirection(Direction.North);
@@ -126,7 +126,7 @@ class WumpusLogicTest {
 
     @Test
     void testGoStraightAheadShouldNotifyWhenIAmASpecialPlaceWhereIsAGold() {
-        wumpusLogic= new WumpusLogic(LoadFrom.file);
+        wumpusLogic= new WumpusLogic(LoadFrom.file, "test");
         wumpusLogic.getHero().setArrowCount(1);
 
         wumpusLogic.getHero().setDirection(Direction.South);
@@ -147,7 +147,7 @@ class WumpusLogicTest {
 
     @Test
     void testWinStateCheckerShouldSetTheWinVariableToTrueWhenTheHeroDoesWin(){
-        wumpusLogic= new WumpusLogic(LoadFrom.file);
+        wumpusLogic= new WumpusLogic(LoadFrom.file,"test");
         int row=0;
         char column='A';
         for(int i=0; i< wumpusLogic.field.size(); i++) {
@@ -169,7 +169,7 @@ class WumpusLogicTest {
     @Test
     void testTakeTheGoldShouldGiveThatWhenHeIsOnThatPlaceWhereTheGoldIs() {
         // Given
-        wumpusLogic= new WumpusLogic(LoadFrom.file);
+        wumpusLogic= new WumpusLogic(LoadFrom.file, "test");
         int row=0;
         char column='A';
         for(int i=0; i< wumpusLogic.field.size(); i++) {
@@ -193,7 +193,7 @@ class WumpusLogicTest {
     @Test
     void testTakeTheGoldShouldDoNotGiveThatWhenHeIsNotOnThatPlaceWhereTheGoldIs() {
         // Given
-        wumpusLogic= new WumpusLogic(LoadFrom.file);
+        wumpusLogic= new WumpusLogic(LoadFrom.file, "test");
         int row=0;
         char column='A';
         for(int i=0; i< wumpusLogic.field.size(); i++) {
@@ -217,7 +217,7 @@ class WumpusLogicTest {
     @Test
     void testGoStraightAheadShouldMoveHeroEastAndUpdateStepCounter() {
         // GIVEN
-        WumpusLogic wumpusLogic = new WumpusLogic(LoadFrom.file);
+        WumpusLogic wumpusLogic = new WumpusLogic(LoadFrom.file, "test");
         int initialColumn = wumpusLogic.getHero().getColumn();
         int initialStepCounter = wumpusLogic.getStepCounter();
 
