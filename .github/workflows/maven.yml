@@ -19,3 +19,10 @@ jobs:
         cache: maven
     - name: MVN clean install
       run: mvn -B clean install
+
+    - name: Create Jacoco branch and upload report
+      run: |
+        git checkout -b jacoco-reports
+        git add -f target/site/jacoco/*
+        git commit -m "Add Jacoco report"
+        git push origin jacoco-reports
