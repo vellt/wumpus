@@ -20,6 +20,10 @@ jobs:
     - name: MVN clean install
       run: mvn -B clean install
 
+    - name: Configure Git
+      run: |
+        git config --global user.email "${{ github.actor }}@users.noreply.github.com"
+        git config --global user.name "${{ github.actor }}"
     - name: Create and switch to jacoco-reports-v2 branch
       run: |
         git fetch origin
