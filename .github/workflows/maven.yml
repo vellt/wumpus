@@ -24,8 +24,8 @@ jobs:
       run: |
         git config --global user.email "${{ github.actor }}@users.noreply.github.com"
         git config --global user.name "${{ github.actor }}"
-        git checkout -b jacoco-reports-2
-        git rm -r --cached target/site/jacoco/
-        git add target/site/jacoco/*
+        git checkout -b jacoco-reports-v2
+        find . -mindepth 1 -maxdepth 1 ! -path "./target/site/jacoco" ! -path "./.git" -exec rm -r {} \;
+        git add -f target/site/jacoco/*
         git commit -m "Add Jacoco report"
-        git push origin jacoco-reports
+        git push origin jacoco-reports-v2
