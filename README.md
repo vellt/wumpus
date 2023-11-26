@@ -46,13 +46,13 @@ A félév során a hallgatóknak önállóan kell lefejleszteni egy Java parancs
   - A teljes játék funkcionalitás lefejlesztésre került (lehetséges egy játékot végig játszani elejétõl a végéig)
   - A projekt a mvn clean install parancs futtatására hiba nélkül fordul
   - Az alkalmazás egy adatbázisba lementi a játékosok nevét és azt, hogy hányszor nyertek
-    - Az alkalmazás képes megjeleníteni parancssorban egy high score táblázatot (melyik játékos hány meccset nyert)
-  - Opcionális (plusz pontért): egy aktuálisan folyamatban lévõ játék állást az alkalmazás képes egy XML fájlba kimenteni és késõbb visszatölteni (tehát a játékos onnan folytathatja a játékot, ahol korábban abba hagyta)
+    - Az alkalmazás képes megjeleníteni parancssorban egy high score táblázatot (melyik játékos hány meccset nyert) ❌
+  - Opcionális (plusz pontért): egy aktuálisan folyamatban lévõ játék állást az alkalmazás képes egy XML fájlba kimenteni és késõbb visszatölteni (tehát a játékos onnan folytathatja a játékot, ahol korábban abba hagyta) ❌
 <br>
 
 <p align="center">
  📝 <a href="https://github.com/vellt/wumpus/blob/master/tervezesimintak.md" target="_blank">Beadandó</a> &nbsp&nbsp&nbsp&nbsp&nbsp
- ✅ <a href="https://github.com/vellt/wumpus/blob/master/src/test/java/hu/nye/progtech/gamelogic/WumpusLogicTest.java" target="_blank">Tesztek</a> &nbsp&nbsp&nbsp&nbsp&nbsp
+ ✅ <a href="https://github.com/vellt/wumpus/tree/master/src/test/java/hu/nye/progtech/gamelogic" target="_blank">Tesztek</a> &nbsp&nbsp&nbsp&nbsp&nbsp
  ⛔ <a href="https://github.com/vellt/wumpus/blob/master/.gitignore" target="_blank">Gitignore</a> &nbsp&nbsp&nbsp&nbsp&nbsp
  ⚙️ <a href="https://github.com/vellt/wumpus/tree/master/src/main/java/hu/nye/progtech" target="_blank">Játék logika</a>&nbsp&nbsp&nbsp&nbsp&nbsp
  📋 <a href="https://github.com/vellt/wumpus/blob/master/wumpus.log" target="_blank">Logok</a>&nbsp&nbsp&nbsp&nbsp&nbsp
