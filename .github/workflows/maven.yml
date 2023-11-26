@@ -26,7 +26,8 @@ jobs:
         git config --global user.name "${{ github.actor }}"
         git checkout -b jacoco-reports-v2
         ls
-        find . -mindepth 1 -maxdepth 1 ! -path "./target/site/jacoco/" ! -path "./.git/" -exec rm -r {} \;
-        git add -f target/site/jacoco/*
+        find . -mindepth 1 -maxdepth 1 ! -path "./target/site/jacoco" ! -path "./.git" -exec rm -r {} \;
+        ls
+        git add .
         git commit -m "Add Jacoco report"
         git push origin jacoco-reports-v2
