@@ -26,6 +26,6 @@ jobs:
         git config --global user.name "${{ github.actor }}"
         git checkout -b jacoco-reports
         git rm -r --cached  target/site/jacoco/*
-        git add -f target/site/jacoco/*
+        git add .
         git commit -m "Add Jacoco report"
         git push origin jacoco-reports
