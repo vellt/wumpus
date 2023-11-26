@@ -177,6 +177,9 @@ public class Main {
             }
             if (Wumpus.isGameOver()) {
                 GameOver.show(gameOverMenu -> GameOver.close());
+                if (Wumpus.gameLogic.getHero().getId() != -1) {
+                    System.out.println(dbloader.deleteHero(Wumpus.gameLogic.getHero().getId()));
+                }
                 Wumpus.close();
                 GiveYourName.close();
                 StartNewGame.close();
