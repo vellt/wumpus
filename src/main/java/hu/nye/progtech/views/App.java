@@ -32,7 +32,6 @@ public class App {
             if (scanner.hasNextInt()) {
                 viewMenu = scanner.nextInt();
             }
-
             callback.call(viewMenu);
         }
         logger.info("Játék bezárva");

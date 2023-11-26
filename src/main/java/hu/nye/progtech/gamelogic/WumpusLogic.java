@@ -4,6 +4,7 @@ package hu.nye.progtech.gamelogic;
 import java.util.ArrayList;
 import java.util.List;
 
+import hu.nye.progtech.gamelogic.db.DatabaseLoader;
 import hu.nye.progtech.models.FieldObject;
 import hu.nye.progtech.models.Hero;
 
@@ -14,23 +15,12 @@ import hu.nye.progtech.models.Hero;
 public class WumpusLogic {
     List<FieldObject> field = new ArrayList<>();
     Hero hero = new Hero();
-
-    int stepCounter = 0;
-
-    public int getStepCounter() {
-        return stepCounter;
-    }
-
-    FieldObject startFieldOfTheHero;
-
     boolean gameOver = false;
     boolean win = false;
 
     public boolean isWin() {
         return win;
     }
-
-    int matrixLength = 0;
 
     public boolean isGameOver() {
         return gameOver;
@@ -40,22 +30,21 @@ public class WumpusLogic {
         this.gameOver = gameOver;
     }
 
-    public WumpusLogic(LoadFrom loadFrom, String name) {
+    public WumpusLogic(LoadFrom loadFrom, int id, DatabaseLoader databaseLoader) {
+        FileLoader fileLoader = new FileLoader();
         switch (loadFrom) {
             case file:
-                FileLoader loader = new FileLoader();
-                hero = loader.getHero();
-                hero.setName(name);
-                startFieldOfTheHero = new FieldObject(
-                        hero.getShortCut(),
-                        hero.getColumn(),
-                        hero.getRow()
-                ); // beállítjuk a kezdeti értéket, mert ez lesz a cél
-                field = loader.getField();
-                matrixLength = loader.getMatrixLength();
+                hero = fileLoader.getHero();
+                hero.setStartColumn(hero.getColumn());
+                hero.setStartRow(hero.getRow());
+                // beállítjuk a kezdeti értéket, mert ez lesz a cél
+                field = fileLoader.getField();
+                hero.setMatrixLength(fileLoader.getMatrixLength());
                 break;
             default:
                 // játék betöltése adb-ből név alapján
+                hero = databaseLoader.getHeroData(id);
+                field = fileLoader.getField();
                 break;
         }
     }
@@ -90,7 +79,7 @@ public class WumpusLogic {
      * here the second one. // minden lépésnél ellenrzöm
      */
     private void winStateChecker() {
-        if (hero.hasGold() && hero.getColumn() == startFieldOfTheHero.getColumn() && hero.getRow() == startFieldOfTheHero.getRow()) {
+        if (hero.isWinner()) {
             // nyertem
             win = true;
         }
@@ -122,8 +111,11 @@ public class WumpusLogic {
                         }
                         hero.lostAnArrow();
                     }
-                    stepCounter++;
-                } else {
+                   int step = hero.getStep();
+                   step++;
+                   hero.setStep(step);
+
+               } else {
                    message = "Fal van előtted!";
                }
             }
@@ -147,7 +139,9 @@ public class WumpusLogic {
                        hero.lostAnArrow();
 
                    }
-                   stepCounter++;
+                   int step = hero.getStep();
+                   step++;
+                   hero.setStep(step);
                } else {
                    message = "Fal van előtted!";
                }
@@ -172,7 +166,9 @@ public class WumpusLogic {
                        hero.lostAnArrow();
 
                    }
-                    stepCounter++;
+                   int step = hero.getStep();
+                   step++;
+                   hero.setStep(step);
                } else {
                    message = "Fal van előtted!";
                }
@@ -197,7 +193,9 @@ public class WumpusLogic {
                        hero.lostAnArrow();
 
                    }
-                   stepCounter++;
+                   int step = hero.getStep();
+                   step++;
+                   hero.setStep(step);
                } else {
                    message = "Fal van előtted!";
                }
@@ -220,7 +218,7 @@ public class WumpusLogic {
                         .filter(field -> field.getRow() == hero.getRow()).toList();
                 boolean heKilledTheWumpus = false;
                 // itt lesz gond az átlváltással 64->
-                for (int i = hero.getColumn() - 65; i < matrixLength; i++) {
+                for (int i = hero.getColumn() - 65; i < hero.getMatrixLength(); i++) {
                     if (filteredList.get(i).getShortCut() != 'W') {
                         if (filteredList.get(i).getShortCut() == 'U') {
                             //találta a nyil
@@ -243,7 +241,7 @@ public class WumpusLogic {
                 List<FieldObject> filteredList = field.stream()
                         .filter(field -> field.getColumn() == hero.getColumn()).toList(); //azért mert vertikálisan haladok
                 // kinyertem az oszlop azon sorait amiben a hős van
-                for (int i = hero.getRow(); i < matrixLength; i++) {
+                for (int i = hero.getRow(); i < hero.getMatrixLength(); i++) {
                     if (filteredList.get(i).getShortCut() != 'W') {
                         if (filteredList.get(i).getShortCut() == 'U') {
                             //találta a nyil

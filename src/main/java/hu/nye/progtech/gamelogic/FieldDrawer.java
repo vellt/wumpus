@@ -30,7 +30,7 @@ public class FieldDrawer {
         wumpusLogic.field.sort(Comparator
                 .comparing(FieldObject::getRow)
                 .thenComparing(FieldObject::getColumn));
-        IntStream.range(0, wumpusLogic.matrixLength + 1).forEach(column -> {
+        IntStream.range(0, wumpusLogic.hero.getMatrixLength() + 1).forEach(column -> {
             if ((column == 0)) {
                 System.out.printf("%c\t", ' ');
             } else {
@@ -40,7 +40,7 @@ public class FieldDrawer {
         });
         System.out.print("\n\n");
         wumpusLogic.field.forEach((fieldElement) -> {
-            if (fieldElement.getColumn() - 64 == wumpusLogic.matrixLength) {
+            if (fieldElement.getColumn() - 64 ==  wumpusLogic.hero.getMatrixLength()) {
                 if (fieldElement.getColumn() - 64 == 0) {
                     if (conditionForColoring(fieldElement, wumpusLogic.hero)) {
                         System.out.printf(ConsoleColor.ANSI_GREEN_BACKGROUND + "%3s\n" + ConsoleColor.RESET, fieldElement.getShortCut());

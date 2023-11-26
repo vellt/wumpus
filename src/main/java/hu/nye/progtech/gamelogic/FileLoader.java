@@ -55,18 +55,22 @@ public class FileLoader {
                         fields.add(new FieldObject(
                                 splitLine[row].charAt(column),
                                 (char) (column + 65), // mert az A-->65ös indexű az ASCII-ben
-                                row
+                                row,
+                                -1,
+                                matrixLength
                         ));
                     }
                 }
                 // hős adatainak a betöltése
                 hero = new Hero(
+                        -1,
                         'H',
                         firstLine[1].charAt(0),
                         Integer.parseInt(firstLine[2]),
                         getCorrectDirection(firstLine[3].charAt(0)),
                         numberOfWumpus(), //azért mert annyi nyillal kezd amennyi wumpus van
-                        "unknow");
+                        "unknow", hero.getStep(), firstLine[1].charAt(0),
+                        Integer.parseInt(firstLine[2]), false, matrixLength);
             }
         } catch (IOException e) {
             e.printStackTrace();

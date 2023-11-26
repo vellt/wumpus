@@ -23,7 +23,7 @@ public class Win {
         while (viewLoop) {
             System.out.println(ConsoleColor.BLUE + "-----------------Nyertél--------------------" + ConsoleColor.RESET);
             String extend = " lépés számmal visszatérned az arannyal a kezdőpontra!";
-            System.out.println("Gratulálok! Sikerült " + wumpusLogic.getStepCounter() + extend);
+            System.out.println("Gratulálok! Sikerült " + wumpusLogic.getHero().getStep() + extend);
             callback.call(viewMenu);
         }
     }

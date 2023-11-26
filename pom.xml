@@ -103,6 +103,7 @@
                         <exclude>hu/nye/progtech/gamelogic/LoadFrom.*</exclude>
                         <exclude>hu/nye/progtech/gamelogic/FieldDrawer.*</exclude>
                         <exclude>hu/nye/progtech/gamelogic/DatabaseLoader.*</exclude>
+                        <exclude>hu/nye/progtech/gamelogic/db/*</exclude>
                         <exclude>hu/nye/progtech/data/*</exclude>
                     </excludes>
                 </configuration>

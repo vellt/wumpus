@@ -19,8 +19,8 @@ public class SaveGame {
     public static void show(MenuCallback callback) {
         viewLoop = true;
         while (viewLoop) {
-            System.out.println(ConsoleColor.GREEN + "-----------------Játék mentése--------------------" + ConsoleColor.RESET);
-            System.out.println("Nincs implementálva-->kilépés");
+            System.out.println(ConsoleColor.BLUE + "-----------------Játék mentése--------------------" + ConsoleColor.RESET);
+            System.out.println("játék mentve");
             callback.call(viewMenu);
         }
     }

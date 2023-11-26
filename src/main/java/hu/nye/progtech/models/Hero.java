@@ -5,26 +5,92 @@ package hu.nye.progtech.models;
  * here the second one.
  */
 public class Hero extends FieldObject {
+
+    private  int id;
+    private char startColumn;
+    private int startRow;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setStartColumn(char startColumn) {
+        this.startColumn = startColumn;
+    }
+
+    public void setStartRow(int startRow) {
+        this.startRow = startRow;
+    }
+
+    public char getStartColumn() {
+        return startColumn;
+    }
+
+    public int getStartRow() {
+        return startRow;
+    }
+
+    public boolean isWinner() {
+        return getRow() == getStartRow() && getColumn() == getStartColumn() && hasGold();
+    }
+
     private Direction direction;
     private int arrowCount;
 
     private String name;
 
+    public void setStep(int step) {
+        this.step = step;
+    }
+
+    public int getStep() {
+        return step;
+    }
+
+    private int step;
+
     private boolean hasGold = false;
 
-    public Hero(char shortCut, char column, int row, Direction direction, int arrowCount, String name) {
-        super(shortCut, column, row);
+    private int matrixLength;
+
+    public void setMatrixLength(int matrixLength) {
+        this.matrixLength = matrixLength;
+    }
+
+    public Hero(
+            int id,
+            char shortCut,
+            char column,
+            int row,
+            Direction direction,
+            int arrowCount,
+            String name,
+            int step,
+            char startColumn,
+            int  startRow,
+            boolean hasGold,
+            int matrixLength
+    ) {
+        super(shortCut, column, row, id, matrixLength);
+        this.matrixLength = matrixLength;
+        this.id = id;
         this.direction = direction;
         this.arrowCount = arrowCount;
         this.name = name;
+        this.step = step;
+        this.startColumn = startColumn;
+        this.startRow = startRow;
+        this.hasGold = hasGold;
     }
 
     public Hero() {
-        super('0', '0', 0);
+        super('0', '0', 0, 0, 0);
         this.direction = Direction.East;
         this.arrowCount = 0;
         this.name = "";
     }
+
+
 
     public boolean hasGold() {
         return hasGold;

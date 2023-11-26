@@ -5,6 +5,7 @@ import java.util.Scanner;
 import hu.nye.progtech.gamelogic.FieldDrawer;
 import hu.nye.progtech.gamelogic.LoadFrom;
 import hu.nye.progtech.gamelogic.WumpusLogic;
+import hu.nye.progtech.gamelogic.db.DatabaseLoader;
 import hu.nye.progtech.models.ConsoleColor;
 import hu.nye.progtech.models.MenuCallback;
 
@@ -25,16 +26,20 @@ public class Wumpus {
      * Let's call this as the first sentence,
      * here the second one.
      */
-    public static void loadDataFromDb(String name) {
-        gameLogic = new WumpusLogic(LoadFrom.database, name);
+    public static void loadDataFromDb(int id) {
+
+        gameLogic = new WumpusLogic(LoadFrom.database, id, databaseLoader);
     }
+
+    public static DatabaseLoader databaseLoader;
 
     /**
      * Let's call this as the first sentence,
      * here the second one.
      */
     public static void loadDataFromFile(String name) {
-        gameLogic = new WumpusLogic(LoadFrom.file, name);
+        gameLogic = new WumpusLogic(LoadFrom.file, 0, databaseLoader);
+        gameLogic.getHero().setName(name);
     }
 
     /**
@@ -53,9 +58,12 @@ public class Wumpus {
             System.out.println("neve: " + ConsoleColor.GREEN + gameLogic.getHero().getName() + ConsoleColor.RESET);
             String extend = "," + gameLogic.getHero().getRow() + ConsoleColor.RESET;
             System.out.println("pozíciója: " + ConsoleColor.GREEN + gameLogic.getHero().getColumn() + extend);
+            String startPoint = "," + gameLogic.getHero().getStartRow() + ConsoleColor.RESET;
+            System.out.println("kezdő pozícízó: " + ConsoleColor.GREEN + gameLogic.getHero().getStartColumn() + startPoint);
             System.out.println("iránya: " + ConsoleColor.GREEN + gameLogic.getHero().getDirectionAsCharacter() + ConsoleColor.RESET);
             System.out.println("arany: " + ConsoleColor.GREEN + gameLogic.getHero().hasGold() + ConsoleColor.RESET);
             System.out.println("nyilak száma: " + ConsoleColor.GREEN + gameLogic.getHero().getArrowCount() + ConsoleColor.RESET);
+            System.out.println("lépések száma: " + ConsoleColor.GREEN + gameLogic.getHero().getStep() + ConsoleColor.RESET);
 
 
             System.out.println(ConsoleColor.GREEN + "1. " + ConsoleColor.RESET + "Játék mentése");

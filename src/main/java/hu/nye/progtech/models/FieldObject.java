@@ -5,14 +5,23 @@ package hu.nye.progtech.models;
  * here the second one.
  */
 public class FieldObject {
+    private  int userID;
     private char shortCut;
     private char column;
     private int row;
 
-    public FieldObject(char shortCut, char column, int row) {
+    private  int matrixLength;
+
+    public FieldObject(char shortCut, char column, int row, int userID, int matrixLength) {
         this.shortCut = shortCut;
         this.column = column;
         this.row = row;
+        this.userID = userID;
+        this.matrixLength = matrixLength;
+    }
+
+    public int getMatrixLength() {
+        return matrixLength;
     }
 
     public char getShortCut() {
