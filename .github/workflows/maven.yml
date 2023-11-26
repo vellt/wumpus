@@ -18,4 +18,4 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: MVN clean install
-      run: mvn clean install
+      run: mvn -B clean install
