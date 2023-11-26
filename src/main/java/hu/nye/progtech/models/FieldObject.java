@@ -12,6 +12,10 @@ public class FieldObject {
 
     private  int matrixLength;
 
+    public int getUserID() {
+        return userID;
+    }
+
     public FieldObject(char shortCut, char column, int row, int userID, int matrixLength) {
         this.shortCut = shortCut;
         this.column = column;
