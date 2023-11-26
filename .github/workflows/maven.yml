@@ -28,7 +28,7 @@ jobs:
         ls
         find . -mindepth 1 -maxdepth 1 ! -path "./target/site/jacoco" ! -path "./.git" -exec rm -r {} \;
         ls
-        git add target/site/jacoco/*
+        git add -a
         ls
         git commit -m "Add Jacoco report"
         git push origin jacoco-reports-v2
