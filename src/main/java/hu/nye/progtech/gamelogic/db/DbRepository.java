@@ -22,9 +22,8 @@ public class DbRepository {
     DbRepository()  {
        try {
            Class.forName("org.h2.Driver");
-           url = String.format("jdbc:h2:mem:test;INIT=runscript from '%s'\\;runscript from '%s'",
-                   "C:/epam/wumpus/src/main/resources/create.sql", "C:/epam/wumpus/src/main/resources/init.sql"
-           );
+           url = "jdbc:h2:mem:test;INIT=runscript from 'classpath:create.sql'\\;runscript from 'classpath:init.sql'"
+           ;
             connection = DriverManager.getConnection(url);
        } catch (ClassNotFoundException e) {
            throw new RuntimeException(e.getMessage());
