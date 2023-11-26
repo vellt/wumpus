@@ -20,16 +20,26 @@ jobs:
     - name: MVN clean install
       run: mvn -B clean install
 
-    - name: Create Jacoco branch and upload report
+    - name: Configure Git
       run: |
         git config --global user.email "${{ github.actor }}@users.noreply.github.com"
         git config --global user.name "${{ github.actor }}"
+    - name: Create and switch to jacoco-reports-v2 branch
+      run:
         git checkout -b jacoco-reports-v2
-        git pull origin jacoco-reports-v2
-        ls
-        find . -mindepth 1 -maxdepth 1 ! -path "./target/site/jacoco" ! -path "./.git" -exec rm -r {} \;
-        ls
-        git add -A
-        ls
-        git commit -m "Add Jacoco report"
-        git push origin jacoco-reports-v2
+        git fetch origin
+        git rebase origin/jacoco-reports-v2
+    - name: Pull changes from jacoco-reports-v2 branch
+      run: git pull origin jacoco-reports-v2
+    - name: List files before cleanup
+      run: ls
+    - name: Remove files (excluding target/site/jacoco and .git)
+      run: find . -mindepth 1 -maxdepth 1 ! -path "./target/site/jacoco" ! -path "./.git" -exec rm -r {} \;
+    - name: List files after cleanup
+      run: ls
+    - name: Add changes
+      run: git add -A
+    - name: Commit changes
+      run: git commit -m "Add Jacoco report"
+    - name: Push changes to jacoco-reports-v2 branch
+      run: git push origin jacoco-reports-v2  --force
