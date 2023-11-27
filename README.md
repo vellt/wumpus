@@ -11,7 +11,6 @@ A félév során a hallgatóknak önállóan kell lefejleszteni egy Java parancs
 - Tudjon nevet bekérni
 - Játékállapotot tudjon adatbázisba írni, és olvasni
 - Pályát tudjon beolvasni vagy készíteni és beolvasni
-- Az alkalmazáshoz egy minimális CI-CD pipelinet kell összerakni.
 - Pálya elemei: W -- fal, H -- hős, U -- wumpusz, P -- verem, G -- arany, _ -- üres
 - Mind a fájlbeolvasásnál, mind a szerkesztés vége jelzése után validálni kell az inputot a helyes darabszámokra is.
 - játékban:
