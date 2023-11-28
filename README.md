@@ -12,7 +12,7 @@ A félév során a hallgatóknak önállóan kell lefejleszteni egy Java parancs
 - Játékállapotot tudjon adatbázisba írni, és olvasni
 - Pályát tudjon beolvasni vagy készíteni és beolvasni
 - Pálya elemei: W -- fal, H -- hős, U -- wumpusz, P -- verem, G -- arany, _ -- üres
-- Mind a fájlbeolvasásnál, mind a szerkesztés vége jelzése után validálni kell az inputot a helyes darabszámokra is.
+- Mind a fájlbeolvasásnál, mind a szerkesztés vége jelzése után validálni kell az inputot a helyes darabszámokra is. ❌
 - játékban:
   - A HŐS minden pillanatában legyen olyan tulajdonsága, hogy merre néz; valamint, hogy hány nyila van (a nyilak száma kezdetben megegyezik a wumpuszok számával)
   - A HŐS-nek legyenek ilyan akciói: lép, fordul jobbra, fordul balra, lő, aranyat felszed
