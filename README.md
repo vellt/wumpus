@@ -50,7 +50,7 @@ A félév során a hallgatóknak önállóan kell lefejleszteni egy Java parancs
 <br>
 
 <p align="center">
- 📝 <a href="https://github.com/vellt/wumpus/blob/master/tervezesimintak.md" target="_blank">Beadandó</a> &nbsp&nbsp&nbsp&nbsp&nbsp
+ 📝 <a href="https://github.com/vellt/wumpus/blob/master/tervezesimintak.md" target="_blank">Tervezési minták</a> &nbsp&nbsp&nbsp&nbsp&nbsp
  ✅ <a href="https://github.com/vellt/wumpus/blob/master/src/test/java/hu/nye/progtech/gamelogic/WumpusLogicTest.java" target="_blank">Tesztek</a> &nbsp&nbsp&nbsp&nbsp&nbsp
  ⛔ <a href="https://github.com/vellt/wumpus/blob/master/.gitignore" target="_blank">Gitignore</a> &nbsp&nbsp&nbsp&nbsp&nbsp
  ⚙️ <a href="https://github.com/vellt/wumpus/tree/master/src/main/java/hu/nye/progtech" target="_blank">Játék logika</a>&nbsp&nbsp&nbsp&nbsp&nbsp
