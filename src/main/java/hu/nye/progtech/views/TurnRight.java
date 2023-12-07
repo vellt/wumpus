@@ -1,8 +1,8 @@
 package hu.nye.progtech.views;
 
 import hu.nye.progtech.gamelogic.WumpusLogic;
-import hu.nye.progtech.models.ConsoleColor;
-import hu.nye.progtech.models.MenuCallback;
+import hu.nye.progtech.utils.ConsoleColor;
+import hu.nye.progtech.utils.MenuCallback;
 
 /**
  * Let's call this as the first sentence,

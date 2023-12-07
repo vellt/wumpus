@@ -1,11 +1,13 @@
-package hu.nye.progtech.gamelogic;
+package hu.nye.progtech.datacontrollers.filecontroller;
 
 import java.util.Comparator;
 import java.util.stream.IntStream;
 
-import hu.nye.progtech.models.ConsoleColor;
-import hu.nye.progtech.models.FieldObject;
-import hu.nye.progtech.models.Hero;
+import hu.nye.progtech.gamelogic.WumpusLogic;
+import hu.nye.progtech.model.FieldObject;
+import hu.nye.progtech.model.Hero;
+import hu.nye.progtech.utils.ConsoleColor;
+
 
 /**
  * Let's call this as the first sentence,

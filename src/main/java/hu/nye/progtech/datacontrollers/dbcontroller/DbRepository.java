@@ -1,4 +1,4 @@
-package hu.nye.progtech.gamelogic.db;
+package hu.nye.progtech.datacontrollers.dbcontroller;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,8 +8,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import hu.nye.progtech.models.Direction;
-import hu.nye.progtech.models.Hero;
+import hu.nye.progtech.model.Direction;
+import hu.nye.progtech.model.Hero;
 
 /**
  * Let's call this as the first sentence,

@@ -98,10 +98,13 @@
                 <configuration>
                     <excludes>
                         <exclude>hu/nye/progtech/Main.*</exclude>
-                        <exclude>hu/nye/progtech/models/*</exclude>
+                        <exclude>hu/nye/progtech/model/*</exclude>
+                        <exclude>hu/nye/progtech/datacontrollers/*</exclude>
+                        <exclude>hu/nye/progtech/datacontrollers/dbcontroller/*</exclude>
+                        <exclude>hu/nye/progtech/datacontrollers/filecontroller/*</exclude>
+                        <exclude>hu/nye/progtech/datacontrollers/LoadFrom.*</exclude>
                         <exclude>hu/nye/progtech/views/*</exclude>
-                        <exclude>hu/nye/progtech/gamelogic/LoadFrom.*</exclude>
-                        <exclude>hu/nye/progtech/gamelogic/FieldDrawer.*</exclude>
+                        <exclude>hu/nye/progtech/utils/*</exclude>
                         <exclude>hu/nye/progtech/data/*</exclude>
                     </excludes>
                 </configuration>

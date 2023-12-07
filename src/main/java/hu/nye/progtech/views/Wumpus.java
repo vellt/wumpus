@@ -2,12 +2,12 @@ package hu.nye.progtech.views;
 
 import java.util.Scanner;
 
-import hu.nye.progtech.gamelogic.FieldDrawer;
-import hu.nye.progtech.gamelogic.LoadFrom;
+import hu.nye.progtech.datacontrollers.LoadFrom;
+import hu.nye.progtech.datacontrollers.dbcontroller.DatabaseLoader;
+import hu.nye.progtech.datacontrollers.filecontroller.FieldDrawer;
 import hu.nye.progtech.gamelogic.WumpusLogic;
-import hu.nye.progtech.gamelogic.db.DatabaseLoader;
-import hu.nye.progtech.models.ConsoleColor;
-import hu.nye.progtech.models.MenuCallback;
+import hu.nye.progtech.utils.ConsoleColor;
+import hu.nye.progtech.utils.MenuCallback;
 
 
 /**

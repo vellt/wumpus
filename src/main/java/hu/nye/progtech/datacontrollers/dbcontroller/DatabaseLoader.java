@@ -1,8 +1,8 @@
-package hu.nye.progtech.gamelogic.db;
+package hu.nye.progtech.datacontrollers.dbcontroller;
 
 import java.util.List;
 
-import hu.nye.progtech.models.Hero;
+import hu.nye.progtech.model.Hero;
 
 /**
  * Let's call this as the first sentence,

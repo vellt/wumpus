@@ -1,4 +1,4 @@
-package hu.nye.progtech.gamelogic;
+package hu.nye.progtech.datacontrollers.filecontroller;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -7,9 +7,9 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-import hu.nye.progtech.models.Direction;
-import hu.nye.progtech.models.FieldObject;
-import hu.nye.progtech.models.Hero;
+import hu.nye.progtech.model.Direction;
+import hu.nye.progtech.model.FieldObject;
+import hu.nye.progtech.model.Hero;
 
 /**
  * Let's call this as the first sentence,

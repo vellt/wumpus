@@ -1,9 +1,7 @@
 package hu.nye.progtech;
 
-import hu.nye.progtech.gamelogic.WumpusLogic;
-import hu.nye.progtech.gamelogic.db.DatabaseLoader;
-import hu.nye.progtech.gamelogic.db.DbRepository;
-import hu.nye.progtech.models.Hero;
+import hu.nye.progtech.datacontrollers.dbcontroller.DatabaseLoader;
+import hu.nye.progtech.model.Hero;
 import hu.nye.progtech.views.App;
 import hu.nye.progtech.views.GameOver;
 import hu.nye.progtech.views.GiveUp;

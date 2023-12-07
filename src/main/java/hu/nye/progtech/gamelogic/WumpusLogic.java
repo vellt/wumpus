@@ -4,17 +4,19 @@ package hu.nye.progtech.gamelogic;
 import java.util.ArrayList;
 import java.util.List;
 
-import hu.nye.progtech.gamelogic.db.DatabaseLoader;
-import hu.nye.progtech.models.FieldObject;
-import hu.nye.progtech.models.Hero;
+import hu.nye.progtech.datacontrollers.LoadFrom;
+import hu.nye.progtech.datacontrollers.dbcontroller.DatabaseLoader;
+import hu.nye.progtech.datacontrollers.filecontroller.FileLoader;
+import hu.nye.progtech.model.FieldObject;
+import hu.nye.progtech.model.Hero;
 
 /**
  * Let's call this as the first sentence,
  * here the second one.
  */
 public class WumpusLogic {
-    List<FieldObject> field = new ArrayList<>();
-    Hero hero = new Hero();
+    public List<FieldObject> field = new ArrayList<>();
+    public Hero hero = new Hero();
     boolean gameOver = false;
     boolean win = false;
 

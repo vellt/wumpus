@@ -1,4 +1,4 @@
-package hu.nye.progtech.models;
+package hu.nye.progtech.utils;
 
 /**
  * Let's call this as the first sentence,

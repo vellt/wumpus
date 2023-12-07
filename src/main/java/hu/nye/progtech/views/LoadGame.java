@@ -3,10 +3,10 @@ package hu.nye.progtech.views;
 import java.util.List;
 import java.util.Scanner;
 
-import hu.nye.progtech.gamelogic.db.DatabaseLoader;
-import hu.nye.progtech.models.ConsoleColor;
-import hu.nye.progtech.models.Hero;
-import hu.nye.progtech.models.MenuCallback;
+import hu.nye.progtech.datacontrollers.dbcontroller.DatabaseLoader;
+import hu.nye.progtech.model.Hero;
+import hu.nye.progtech.utils.ConsoleColor;
+import hu.nye.progtech.utils.MenuCallback;
 
 
 
