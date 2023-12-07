@@ -60,4 +60,6 @@ Ez a szétválasztás lehetővé teszi, hogy a változások az egyik részben ne
 Egy webalkalmazás esetében a Modell tartalmazhatja az adatbázis-kezelő kódot, a Nézet lehet az HTML és a CSS, a Vezérlő pedig a szerveroldali kódot, amely kapcsolódik a Modellhez és elvégzi a szükséges műveleteket.
 
 
-
+### További architektúrális minta
+- MVP (Model-View-Presenter): Hasonló az MVC-hez, de a Controller helyett a Presenter felelős a felhasználói bemenet kezeléséért és a modell frissítéséért.
+- MVVM (Model-View-ViewModel): Elválasztja a felhasználói felületet (View) az alkalmazás logikájától (ViewModel), a modell (Model) pedig a háttérben marad.
